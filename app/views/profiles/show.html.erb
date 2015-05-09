@@ -1,4 +1,5 @@
 First name: <%= @profile.firstname %> <br>
 Last name: <%= @profile.lastname %> <br>
-Email: <%= current_user.email %>
+Email: <%= current_user.email %> <br>
+Travel Interests: <%= @profile.tag_list %> <br>
 <%= link_to 'Edit', edit_profile_path(@profile) %>
