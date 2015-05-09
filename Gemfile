@@ -33,7 +33,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'devise', '~> 3.4.1'
-
+gem 'annotate', '~> 2.6.8'
+gem 'simple_form', '~> 3.1.0'
+gem 'better_errors', '~> 2.1.1'
+gem 'cancancan', '~> 1.10'
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'acts_as_follower', '~> 0.2.1'
+gem 'bootstrap-sass', '~> 3.3.4'
 
 
 group :development, :test do
