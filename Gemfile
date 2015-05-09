@@ -42,6 +42,9 @@ gem 'acts_as_follower', '~> 0.2.1'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'country_select', github: 'stefanpenner/country_select'
 gem 'acts-as-taggable-on', '~> 3.5'
+gem 'bootstrap_form', '~> 2.3.0'
+
+
 
 
 group :development, :test do

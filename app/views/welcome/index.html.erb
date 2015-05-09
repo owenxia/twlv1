@@ -1,8 +1,2 @@
-<% @profile = current_user.profile %>
-		<% if @profile.nil?  %>
-		<% @profile = current_user.build_profile %>
-			<% @profile.save  %>
-		<% end %>
 
-<p> <%= link_to 'Profile Page', edit_profile_path(current_user.profile) %></p>
 
