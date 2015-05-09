@@ -60,4 +60,5 @@ class ExperiencesController < ApplicationController
 		@experience = Experience.find(params[:id])
 		@experience.city.downcase!
 	end
+
 end

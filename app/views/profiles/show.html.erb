@@ -33,3 +33,13 @@ Travel Interests: <%= @profile.tag_list %> <br>
   <% end %>
   </ul>
 </p>
+
+
+<p>
+  Added to Wish List:
+  <ul>
+  <% @profile.user.find_liked_items.each do |experience| %>
+    <li> <%= experience.name %> </name>
+  <% end %>
+  </ul>
+</p>
