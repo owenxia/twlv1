@@ -1,8 +1,9 @@
 class ProfilesController < ApplicationController
-	before_action :authenticate_user!, :set_profile
+	before_action :authenticate_user!
+	before_action :set_profile, except: [:index]
 
 	def index
-
+		@profiles = Profile.all.order('CREATED_AT DESC')
 	end
 
 	def show

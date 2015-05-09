@@ -18,7 +18,7 @@ Travel Interests: <%= @profile.tag_list %> <br>
 <p>
 	<% if @profile.followers.include?(current_user.profile) %>
 		<%= link_to 'Unfollow', unfollow_profile_path(@profile) %>
-	<% else %>
+	<% elsif current_user.profile!= @profile %>
 		<%= link_to 'Follow', follow_profile_path(@profile) %>
 	<% end %>
 </p>
