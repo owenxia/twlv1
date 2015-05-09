@@ -1,0 +1,9 @@
+<% @experiences.each do |experience| %>
+	<div class="annotation_wrapper">
+		<p><strong>Name: </strong><%= experience.name %></p>
+		<p><strong>Country: </strong><%= experience.country %></p>
+		<p><strong>City: </strong> <%= experience.city.capitalize %> </p>
+		<p> <%= link_to 'Show Details', experience %></p>
+	</div>
+
+<% end %>

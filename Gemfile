@@ -40,6 +40,8 @@ gem 'cancancan', '~> 1.10'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts_as_follower', '~> 0.2.1'
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'country_select', github: 'stefanpenner/country_select'
+gem 'acts-as-taggable-on', '~> 3.5'
 
 
 group :development, :test do

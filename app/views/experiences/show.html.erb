@@ -1,0 +1,4 @@
+		<p><strong>Name: </strong><%= @experience.name %></p>
+		<p><strong>Country: </strong><%= @experience.country %></p>
+		<p><strong>City: </strong> <%= @experience.city.capitalize %> </p>
+		<%= link_to 'Edit', edit_experience_path(@experience) %>

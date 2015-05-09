@@ -11,10 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509024455) do
+ActiveRecord::Schema.define(version: 20150509093228) do
+
+  create_table "experiences", force: :cascade do |t|
+    t.string   "name"
+    t.string   "continent"
+    t.string   "country"
+    t.string   "city"
+    t.text     "description"
+    t.text     "external_links"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
 # Could not dump table "profiles" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
