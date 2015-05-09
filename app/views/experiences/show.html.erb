@@ -4,3 +4,11 @@
 		<p><strong>Tags: </strong> <%= @experience.tag_list %> </p>
 
 		<%= link_to 'Edit', edit_experience_path(@experience) %>
+
+		<%= link_to 'Add', like_experience_path(@experience), method: :put %> 
+		<%= link_to 'Remove', dislike_experience_path(@experience), method: :put %> |
+		
+		Total likes: <%= @experience.get_upvotes.size %> | 
+
+		<%= @experience.votes_for.voters %> <br>
+		<%= current_user.find_liked_items %>

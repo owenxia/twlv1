@@ -15,4 +15,7 @@
 
 class Experience < ActiveRecord::Base
 	acts_as_taggable
+	acts_as_votable
+
+	validates :name, presence: true
 end

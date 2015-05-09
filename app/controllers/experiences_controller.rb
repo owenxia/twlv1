@@ -1,6 +1,6 @@
 class ExperiencesController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_experience, only: [:show, :edit, :update, :destroy]
+	before_action :set_experience, only: [:show, :edit, :update, :destroy, :add, :remove]
 
 	def index
 		@experiences = Experience.all.order('CREATED_AT DESC')
@@ -40,6 +40,16 @@ class ExperiencesController < ApplicationController
 	def destroy
 		@experience.destroy
 		redirect_to experiences_path
+	end
+
+	def add
+		@experience.upvote_by current_user
+		redirect_to :back
+	end
+
+	def remove
+		@experience.downvote_by current_user
+		redirect_to :back
 	end
 
 	private
