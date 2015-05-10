@@ -18,4 +18,9 @@ class Experience < ActiveRecord::Base
 	acts_as_votable
 
 	validates :name, presence: true
+
+  def tag_list
+    tags.join(', ')
+  end
+
 end

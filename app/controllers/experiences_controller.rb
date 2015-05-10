@@ -17,7 +17,6 @@ class ExperiencesController < ApplicationController
 
 	def create
 		@experience = Experience.new(experience_params)
-		@experience.city.downcase!
 		if @experience.save
 			redirect_to @experience
 		else
@@ -31,6 +30,7 @@ class ExperiencesController < ApplicationController
 
 	def update
 		if @experience.update(experience_params)
+			flash[:notice] = "Experience updated."
 			redirect_to @experience		
 		else
 			render 'edit'	
@@ -58,7 +58,6 @@ class ExperiencesController < ApplicationController
 	end
 	def set_experience		
 		@experience = Experience.find(params[:id])
-		@experience.city.downcase!
 	end
 
 end

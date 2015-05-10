@@ -1,8 +1,12 @@
 <%= simple_form_for @profile do |f| %>
 	<%= f.input :firstname %>
 	<%= f.input :lastname %>
-	<%= f.text_field :tag_list, value: @profile.tag_list.to_s %>
-	<%= f.button :submit %>
+	<%= f.input :location, as: :country, prompt: "Select" %>
+	<%= f.input :gender, collection: ['Male', 'Female'], prompt: "Select" %>
+	<%= f.input :age %>
+	<%= f.input :about %>
+	<%= f.input :tag_list %>
+	<%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 
 

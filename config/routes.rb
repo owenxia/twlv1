@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
 	    get :follow
 	    get :unfollow
+      get :wish_list
 	end
   end
 

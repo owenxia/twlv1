@@ -1,7 +1,7 @@
 <p>
   Added to Wish List:
   <ul>
-  <% current_user.find_liked_items.each do |experience| %>
+  <% @profile.user.find_liked_items.each do |experience| %>
     <li> <%= experience.name %> </name>
   <% end %>
   </ul>

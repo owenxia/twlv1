@@ -49,11 +49,12 @@
                 "active"
               <% end %>
             >
+              <% @profile = current_user.profile %>
               <% if @profile.nil? %>
                 <% @profile = current_user.build_profile %>
                 <% @profile.save  %>
               <% end %>
-              <% @profile = current_user.profile %>
+
               <%= link_to 'My Profile', profile_path(@profile) %>
             </li>
 

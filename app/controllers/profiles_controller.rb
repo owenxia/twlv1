@@ -23,6 +23,7 @@ class ProfilesController < ApplicationController
 
 	def update
 		if @profile.update(profile_params)
+			flash[:notice] = "Experience updated."
 			redirect_to @profile
 		else
 			render 'edit'	
@@ -44,6 +45,10 @@ class ProfilesController < ApplicationController
 
 	end
 
+	def wish_list
+		
+	end
+
 	private
 	def profile_params
 		params.require(:profile).permit(:firstname, :lastname, :location, :gender, :age, :about, :tag_list)
@@ -51,5 +56,7 @@ class ProfilesController < ApplicationController
 	def set_profile
 		@profile = Profile.find(params[:id])
 	end
+
+
 
 end

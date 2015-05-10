@@ -21,4 +21,8 @@ class Profile < ActiveRecord::Base
 	acts_as_followable
 	acts_as_follower
 
+	def tag_list
+    	tags.join(', ')
+  	end
+
 end

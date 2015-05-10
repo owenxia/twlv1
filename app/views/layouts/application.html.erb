@@ -17,12 +17,37 @@
 		<%= render 'layouts/nav_top_not_signed_in' %>
 	<% end %> 
 
-	<p class="bg-success"><%= notice %></p>
-	<p class="bg-danger"><%= alert %></p>
-	
-	<%= yield %>
+
+    <div class="container" role="main">
+
+		<% if !notice.nil? %>
+			<p id="notice"><%= notice %></p>
+		<% elsif !alert.nil? %>
+			<p id="alert"><%= alert %></p>
+		<% end %>
+
+		<%= yield %>
+
+    </div><!-- main -->
 
 	<%= render 'layouts/nav_bottom' %>
+
+	<script>
+		$(document).ready(function(){
+			setTimeout(function(){
+				$('#alert').fadeOut("slow", function(){
+					$(this).remove();
+				})	
+			}, 2000);
+		});
+		$(document).ready(function(){
+			setTimeout(function(){
+				$('#notice').fadeOut("slow", function(){
+					$(this).remove();
+				})	
+			}, 2000);
+		});
+	</script>
 
 </body>
 </html>

@@ -1,27 +1,120 @@
-		<p><strong>Name: </strong><%= @experience.name %></p>
-		<p><strong>Country: </strong><%= @experience.country %></p>
-		<p><strong>City: </strong> <%= @experience.city.capitalize %> </p>
-		<p><strong>Tags: </strong> <%= @experience.tag_list %> </p>
+      <div class="row"> <!-- title row -->
 
-		<%= link_to 'Edit', edit_experience_path(@experience) %>
+        <div class="col-md-8">
+          
+          <ol class="breadcrumb">
+            <li><a href="#"><%= @experience.continent %></a></li>
+            <li><a href="#"><%= @experience.country %></a></li>
+            <li class="active"><%= @experience.city.downcase.capitalize %></li>
+          </ol> 
 
-		
-		
+          <h1><%= @experience.name %></h1>
 
-		<% if current_user.voted_up_on? @experience %>
-			<%= link_to 'Remove', dislike_experience_path(@experience), method: :put %>
-		<% else %>
-			<%= link_to 'Add', like_experience_path(@experience), method: :put %> 
-		<% end %>
-		
+          <p class="text-warning"><i>Keywords: <%= @experience.tag_list %></i></p>
+
+          <div class="btn-action-parent">
+            <div class="btn-action-child">
+              
+              <% if current_user.voted_up_on? @experience %>
+                <%= link_to 'Remove from Wish List', dislike_experience_path(@experience), method: :put, class: "btn btn-default" %>
+              <% else %>
+                <%= link_to 'Add to Wish List', like_experience_path(@experience), method: :put, class: "btn btn-success" %> 
+              <% end %>
+
+            </div>
+          </div>
+
+          <div class="panel panel-info"><!-- experience description -->
+            <div class="panel-heading">
+              <h3 class="panel-title">About the Experience</h3>
+            </div>
+            <div class="panel-body">
+              <%= @experience.description %>
+            </div>
+          </div><!-- /experience description -->
+
+
+          <div class="panel panel-info"><!-- multimedia -->
+            <div class="panel-heading">
+              <h3 class="panel-title">Multimedia</h3>
+            </div>
+
+            <div class="panel-body">
+              !!!!!!!!!Placeholder for the photos/videos!!!!!!!
+            </div>
+          </div><!-- /multimedia -->
+
+          <div class="panel panel-info"><!-- external links -->
+            <div class="panel-heading">
+              <h3 class="panel-title">External Links</h3>
+            </div>
+
+            <div class="panel-body">
+              <%= @experience.external_links %>  
+            </div>
+          </div><!-- /external links -->
+
+          <div class="panel panel-info"><!-- experience comments -->
+            <div class="panel-heading">
+              <h3 class="panel-title">Comments</h3>
+            </div>
+
+            <div class="panel-body">
+              !!!!!!!!!Placeholder for the comments!!!!!!!
+            </div>
+          </div><!-- /experience comments -->
+        </div> <!-- /col-md-8 -->
+
+        <div class="col-md-4">
+
+          <div class="btn-action-parent">
+            <div class="btn-action-child">
+              <%= link_to 'Create', new_experience_path, class: "btn btn-info btn-sm" %>
+              <%= link_to 'Edit', edit_experience_path(@experience), class: "btn btn-warning btn-sm" %>
+              <%= link_to 'Delete', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+            </div>
+          </div>
+
+          <div class="panel panel-success"><!-- map -->
+            <div class="panel-heading">
+              <h3 class="panel-title">Map</h3>
+            </div>
+
+            <div class="panel-body">
+              !!!!!!!!!map!!!!!!!
+            </div>
+          </div><!-- /map -->
+
+          <div class="panel panel-warning"><!-- users who have added this to wish lists -->
+            <div class="panel-heading">
+              <h3 class="panel-title">People Who Want to Do This</h3>
+            </div>
+
+            <div class="panel-body">
+              !!!!!!!!!Placeholder for avatars!!!!!!!
+              Number of people who added this experience to wish lists: <%= @experience.get_upvotes.size %> <br>
+
+              <ul>
+              <% @experience.votes_for.up.voters.each do |user| %>
+                <li>
+                  <%= user.profile.firstname  %>    
+                </li>
+              <% end %>
+              </ul>
+            </div>
+          </div><!-- /experience users-added -->
+
+
+          <div class="panel panel-danger"><!-- related experiences -->
+            <div class="panel-heading">
+              <h3 class="panel-title">Related Travel Experiences</h3>
+            </div>
+
+            <div class="panel-body">
+              !!!!!!!!!Placeholder for experience thumbnails!!!!!!!
+            </div>
+          </div><!-- /related experiences -->
+        </div> <!-- /col-md-4 -->
+
+      </div><!--  /title row -->
 		<br>
-		Number of people who added this experience to wish lists: <%= @experience.get_upvotes.size %> <br>
-
-		<ul>
-		<% @experience.votes_for.up.voters.each do |user| %>
-			<li>
-				<%= user.profile.firstname  %>		
-			</li>
-		<% end %>
-		</ul>
-

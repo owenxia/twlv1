@@ -1,45 +1,138 @@
-First name: <%= @profile.firstname %> <br>
-Last name: <%= @profile.lastname %> <br>
-Email: <%= current_user.email %> <br>
-Travel Interests: <%= @profile.tag_list %> <br>
-<%= link_to 'Edit', edit_profile_path(@profile) %>
+      <div class="row">
+        <div class="col-md-8">       
+          <h1>My Profile</h1>
+        </div>
+        <div class="col-md-4">
+          <div class="btn-action-parent">
+            <div class="btn-action-child">
+              
+              <% if @profile.user == current_user %>
+                <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-warning" %>
+              <% end %>
+              <%= link_to 'View Wish List', wish_list_profile_path, class: "btn btn-primary" %>
 
+              <% if @profile.followers.include?(current_user.profile) %>
+                <%= link_to 'Unfollow', unfollow_profile_path(@profile), class: "btn btn-default" %>
+              <% elsif current_user.profile!= @profile %>
+                <%= link_to 'Follow', follow_profile_path(@profile), class: "btn btn-success" %>
+              <% end %>
 
-<p>
-  Followed by: <br>
-  <ul>
-  <% @profile.followers.each do |profile| %>
-    <li><%= profile.firstname %></li>
-  <% end %>
-  </ul>
-</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="row"> <!-- row -->
 
-<p>
-	<% if @profile.followers.include?(current_user.profile) %>
-		<%= link_to 'Unfollow', unfollow_profile_path(@profile) %>
-	<% elsif current_user.profile!= @profile %>
-		<%= link_to 'Follow', follow_profile_path(@profile) %>
-	<% end %>
-</p>
+        <div class="col-md-8">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Basic Details</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-2">
 
-<hr>
+                  <div class="parent">
+                    <div class="child">
+                      <div>AVATAR</div>
+                    </div>
+                  </div>
 
-<p>
-  Following: <br>
-  <ul>
-  <% @profile.all_following.each do |profile| %>
-    <li><%= profile.firstname %></li>
-  <% end %>
-  </ul>
-</p>
+                </div>
 
+                <div class="col-md-10">
+                  <p>Login email: <%= @profile.user.email %> 
+                    <% if @profile.user == current_user %>
+                      <%= link_to 'Edit Login', edit_user_registration_path, class: "btn btn-warning btn-xs" %>
+                    <% end %>
+                  <p>First name: <%= @profile.firstname %></p>
+                  <p>Last name: <%= @profile.lastname %></p>
+                  <p>Location: <%= @profile.location %></p>
+                  <p>Gender: <%= @profile.gender %></p>
+                  <p>Age: <%= @profile.age %></p>
+                  <p>Travel Interests: <%= @profile.tag_list %></p>
+                </div> <!-- /col-md-10 -->   
 
-<p>
-  Added to Wish List:
-  <ul>
-  <% @profile.user.find_liked_items.each do |experience| %>
-    <li> <%= experience.name %> </name>
-  <% end %>
-  </ul>
-</p>
+              </div> <!-- /row -->
+            </div> <!-- /panel-body -->
+          </div> <!-- /panel -->
+
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">More About Me</h3>
+            </div>
+
+            <div class="panel-body">
+              <%= @profile.about %>
+            </div>
+          </div>
+
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Where I've Been</h3>
+            </div>
+
+            <div class="panel-body">
+              <% @profile.user.travel_records.each do |travel_record| %>
+                <%= travel_record.country %>
+              <% end %>
+            </div>
+          </div>
+
+        </div> <!-- /col-md-8 -->
+
+        <div class="col-md-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Social Media Accounts</h3>
+            </div>
+
+            <div class="panel-body">
+              !!!!!!!!!Placeholder for social media accounts!!!!!!!
+            </div>
+          </div>
+
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Invite Friends</h3>
+            </div>
+
+            <div class="panel-body">
+              !!!!!!!!!Placeholder for invite friends!!!!!!!
+            </div>
+          </div>
+
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">Followed By</h3>
+            </div>
+
+            <div class="panel-body">
+              !!!!!!!!!Placeholder for avatars!!!!!!!
+              <ul>
+              <% @profile.followers.each do |profile| %>
+                <li><%= profile.firstname %></li>
+              <% end %>
+              </ul>
+                        </div>
+          </div>
+
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">Following</h3>
+            </div>
+
+            <div class="panel-body">
+              !!!!!!!!!Placeholder for avatars!!!!!!!
+              <ul>
+              <% @profile.all_following.each do |profile| %>
+                <li><%= profile.firstname %></li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
+
+        </div> <!-- /col-md-4 -->
+
+      </div><!--  /row -->

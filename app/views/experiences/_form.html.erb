@@ -1,7 +1,10 @@
 <%= simple_form_for @experience do |f| %>
 	<%= f.input :name %>
+	<%= f.input :continent %>
 	<%= f.input :country %>
 	<%= f.input :city %>
-	<%= f.text_field :tag_list, value: @experience.tag_list.to_s %>
-	<%= f.button :submit %>
+	<%= f.input :tag_list %>
+	<%= f.input :description %>	
+	<%= f.input :external_links %>
+	<%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
