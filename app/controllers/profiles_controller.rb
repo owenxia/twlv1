@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
 
 	def update
 		if @profile.update(profile_params)
-			flash[:notice] = "Experience updated."
+			flash[:notice] = "Profile updated."
 			redirect_to @profile
 		else
 			render 'edit'	

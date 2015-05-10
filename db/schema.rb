@@ -37,8 +37,17 @@ ActiveRecord::Schema.define(version: 20150509135539) do
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
 
-# Could not dump table "profiles" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "profiles", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "location"
+    t.string   "gender"
+    t.integer  "age"
+    t.text     "about"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
