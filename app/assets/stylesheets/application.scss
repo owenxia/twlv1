@@ -18,3 +18,49 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body{
+	font-family: 'PT Sans', sans-serif;
+}
+
+h1, h4{
+	font-weight: 700;
+}
+
+.container{
+	width: 80%;
+	margin-bottom: 50px;
+}
+
+.btn-action-parent{
+	text-align: center;
+	margin: 0 auto 15px auto;
+}
+
+.btn-action-child{
+	display: inline-block;
+	margin: 0.725em;
+}
+
+.parent{
+	text-align: center;
+}
+
+.child{
+	display: inline-block;
+	float: none;
+}
+
+.cointainer-filter-options{
+	
+}
+
+.dropdown{
+    display: inline;
+    line-height: 40px;
+}
+.keywords{
+	width: 250px;
+	margin-top: 4px;
+	margin-bottom: 2px;
+}
