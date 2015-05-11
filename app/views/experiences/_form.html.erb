@@ -1,6 +1,6 @@
 <%= simple_form_for @experience do |f| %>
 	<%= f.input :name %>
-	<%= f.input :continent %>
+	<%= f.input :continent, collection: ['Asia', 'Europe', 'North America', 'South America', 'Oceania', 'Africa', 'Antarctica'], prompt: "Select"  %>
 	<%= f.input :country %>
 	<%= f.input :city %>
 	<%= f.input :tag_list %>

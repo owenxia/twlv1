@@ -1,4 +1,4 @@
-<%= simple_form_for @travel_record do |f| %>
-	<%= f.input :country %>
-	<%= f.button :submit %>
+<%= simple_form_for [@profile, @travel_record] do |f| %>
+	<%= f.input :country, prompt: "Select"%>
+	<%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

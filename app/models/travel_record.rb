@@ -11,4 +11,5 @@
 
 class TravelRecord < ActiveRecord::Base
  	belongs_to :user
+ 	validates :country, presence: true
 end

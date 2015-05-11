@@ -1,6 +1,6 @@
 class TravelRecordsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_travel_record, only: [:show, :edit, :update, :destroy]
+	before_action :set_profile_and_travel_record, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@travel_records = TravelRecord.all.order('CREATED_AT DESC')
@@ -12,15 +12,30 @@ class TravelRecordsController < ApplicationController
 	end
 
 	def new
-		@travel_record = current_user.travel_records.new
+		@profile = Profile.find(params[:profile_id])
+		@travel_record = @profile.user.travel_records.new
 	end
 
 	def create
-		@travel_record = current_user.travel_records.new(travel_record_params)
-		if @travel_record.save
-			redirect_to @travel_record
+		@profile = Profile.find(params[:profile_id])
+		@new_country = travel_record_params[:country]
+		@@to_create = true;
+		@profile.user.travel_records.each do |travel_record|
+			if travel_record.country == @new_country
+				flash[:alert] = "Travel record not created. You've already been there."
+				@@to_create = false;
+			end
+		end
+		if @@to_create
+			@travel_record = @profile.user.travel_records.new(travel_record_params)
+			if @travel_record.save
+				flash[:notice] = "New travel record created."
+				redirect_to @profile
+			else
+				render 'new'
+			end
 		else
-			render 'new'
+			redirect_to @profile
 		end
 	end
 
@@ -38,14 +53,15 @@ class TravelRecordsController < ApplicationController
 
 	def destroy
 		@travel_record.destroy
-		redirect_to travel_records_path
+		redirect_to @profile
 	end
 
 	private
 	def travel_record_params
 		params.require(:travel_record).permit(:country)
 	end
-	def set_travel_record	
+	def set_profile_and_travel_record	
+		@profile = Profile.find(params[:profile_id])
 		@travel_record = TravelRecord.find(params[:id])
 	end
 end

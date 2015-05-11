@@ -48,7 +48,8 @@
                     <% end %>
                   <p>First name: <%= @profile.firstname %></p>
                   <p>Last name: <%= @profile.lastname %></p>
-                  <p>Location: <%= @profile.location %></p>
+                  <p>Country: <%= @profile.country %></p>
+                  <p>City: <%= @profile.city %></p>
                   <p>Gender: <%= @profile.gender %></p>
                   <p>Age: <%= @profile.age %></p>
                   <p>Travel Interests: <%= @profile.tag_list %></p>
@@ -74,9 +75,22 @@
             </div>
 
             <div class="panel-body">
-              <% @profile.user.travel_records.each do |travel_record| %>
-                <%= travel_record.country %>
+              <% if @profile.user == current_user %>
+                <%= link_to "Add Travel Record", new_profile_travel_record_path(@profile), class: "btn btn-success btn-xs" %>
+                <br><br>
               <% end %>
+              
+              <ul>
+                <% @profile.user.travel_records.each do |travel_record| %>
+                  <li class="list-travel-record">
+                    <%= travel_record.country %>
+                    <% if @profile.user == current_user %>
+                      <%= link_to 'Delete', profile_travel_record_path(@profile, travel_record), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+      
             </div>
           </div>
 

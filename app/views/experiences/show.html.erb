@@ -69,9 +69,8 @@
 
           <div class="btn-action-parent">
             <div class="btn-action-child">
-              <%= link_to 'Create', new_experience_path, class: "btn btn-info btn-sm" %>
-              <%= link_to 'Edit', edit_experience_path(@experience), class: "btn btn-warning btn-sm" %>
-              <%= link_to 'Delete', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+              <%= link_to 'Edit Experience', edit_experience_path(@experience), class: "btn btn-warning btn-sm" %>
+              <%= link_to 'Delete Experience', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
             </div>
           </div>
 

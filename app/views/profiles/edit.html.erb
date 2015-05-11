@@ -1,4 +1,8 @@
 <div class="container-edit">
-<h2>Edit Profile</h2>
+<% if @profile.firstname.nil? && @profile.lastname.nil? %>
+	<h2>Add a New Profile</h2>
+<% else %>
+	<h2>Edit "<%= @profile.firstname %> <%= @profile.lastname %>"</h2>
+<% end %>
 <%= render 'form' %>
 <div>

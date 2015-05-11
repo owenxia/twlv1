@@ -22,6 +22,8 @@ class ProfilesController < ApplicationController
 	end
 
 	def update
+		profile_params[:city].downcase!
+		profile_params[:city].capitalize!
 		if @profile.update(profile_params)
 			flash[:notice] = "Profile updated."
 			redirect_to @profile
@@ -51,7 +53,7 @@ class ProfilesController < ApplicationController
 
 	private
 	def profile_params
-		params.require(:profile).permit(:firstname, :lastname, :location, :gender, :age, :about, :tag_list)
+		params.require(:profile).permit(:firstname, :lastname, :country, :city, :gender, :age, :about, :tag_list)
 	end
 	def set_profile
 		@profile = Profile.find(params[:id])
