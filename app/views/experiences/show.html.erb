@@ -10,6 +10,8 @@
 
           <h1><%= @experience.name %></h1>
 
+          <%= social_share_button_tag(@experience.name) %>
+
           <p class="text-warning"><i>Keywords: <%= @experience.tag_list %></i></p>
 
           <div class="btn-action-parent">
