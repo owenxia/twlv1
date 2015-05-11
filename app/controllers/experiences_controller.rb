@@ -8,7 +8,10 @@ class ExperiencesController < ApplicationController
 	end
 
 	def show
-
+		@hash = Gmaps4rails.build_markers(@experience) do |experience, marker|
+		  marker.lat experience.latitude
+		  marker.lng experience.longitude
+		end
 	end
 
 	def new
@@ -16,7 +19,14 @@ class ExperiencesController < ApplicationController
 	end
 
 	def create
-		@experience = Experience.new(experience_params)
+		@temp = experience_params
+		@temp[:city].downcase!
+		@temp[:city].capitalize!
+		if @temp[:location].empty?
+			@temp[:location] = @temp[:city]
+		end
+		@experience = Experience.new(@temp)
+		
 		if @experience.save
 			redirect_to @experience
 		else
@@ -29,7 +39,14 @@ class ExperiencesController < ApplicationController
 	end
 
 	def update
-		if @experience.update(experience_params)
+		@temp = experience_params
+		@temp[:city].downcase!
+		@temp[:city] = @temp[:city].split(' ').map(&:capitalize).join(' ')
+		if @temp[:location].empty?
+			@temp[:location] = @temp[:city]
+		end
+
+		if @experience.update(@temp)
 			flash[:notice] = "Experience updated."
 			redirect_to @experience		
 		else

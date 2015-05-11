@@ -5,7 +5,7 @@
           <ol class="breadcrumb">
             <li><a href="#"><%= @experience.continent %></a></li>
             <li><a href="#"><%= @experience.country %></a></li>
-            <li class="active"><%= @experience.city.downcase.capitalize %></li>
+            <li class="active"><%= @experience.city %></li>
           </ol> 
 
           <h1><%= @experience.name %></h1>
@@ -61,6 +61,11 @@
 
             <div class="panel-body">
               !!!!!!!!!Placeholder for the comments!!!!!!!
+
+
+
+
+
             </div>
           </div><!-- /experience comments -->
         </div> <!-- /col-md-8 -->
@@ -74,41 +79,37 @@
             </div>
           </div>
 
-          <div class="panel panel-success"><!-- map -->
+          <div class="panel panel-default"><!-- map -->
             <div class="panel-heading">
               <h3 class="panel-title">Map</h3>
             </div>
 
-            <div class="panel-body">
+            <div class="panel-body panel-map">
 
-
-<%= @experience.latitude %> | <%= @experience.longitude %>
-  
+              <div id="map-experience" style='width: 100%; height: 300px;'></div>
 
             </div>
           </div><!-- /map -->
 
           <div class="panel panel-warning"><!-- users who have added this to wish lists -->
             <div class="panel-heading">
-              <h3 class="panel-title">People Who Want to Do This</h3>
+              <h3 class="panel-title">Who Added this to Wish List</h3>
             </div>
 
             <div class="panel-body">
-              !!!!!!!!!Placeholder for avatars!!!!!!!
-              Number of people who added this experience to wish lists: <%= @experience.get_upvotes.size %> <br>
-
-              <ul>
+              <!-- behaviors defined by gem acts_as_votable -->
               <% @experience.votes_for.up.voters.each do |user| %>
-                <li>
-                  <%= user.profile.firstname  %>    
-                </li>
+                <div class="avatar-display">
+                  <div class="avatar-display image-display"><%= link_to image_tag(avatar_url(user.profile)), user.profile ,class: "avatar-image" %></div>
+                  <div class="avatar-display name-display"><%= user.profile.firstname %> <%= user.profile.lastname %></div>
+                </div>
               <% end %>
-              </ul>
+
             </div>
           </div><!-- /experience users-added -->
 
 
-          <div class="panel panel-danger"><!-- related experiences -->
+          <div class="panel panel-success"><!-- related experiences -->
             <div class="panel-heading">
               <h3 class="panel-title">Related Travel Experiences</h3>
             </div>
@@ -119,5 +120,22 @@
           </div><!-- /related experiences -->
         </div> <!-- /col-md-4 -->
 
-      </div><!--  /title row -->
-		<br>
+      </div>
+
+
+<script>
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map-experience'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+
+  //handler.bounds.extendWith(markers);
+  //handler.fitMapToBounds();
+  
+  // to center on a marker
+  handler.map.centerOn(markers[0]); 
+  // to set the map zoom
+  handler.getMap().setZoom(4);
+});
+</script>
+
+

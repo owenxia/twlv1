@@ -74,6 +74,8 @@ h1, h2, h4{
 .child{
 	display: inline-block;
 	float: none;
+
+
 }
 
 .dropdown{
@@ -154,4 +156,14 @@ h1, h2, h4{
 		display: block;
 
 	}
+}
+#map-experience{
+	//border-radius: 5px;
+}
+.panel-map{
+	padding: 0;	
+}
+
+.footer-copyright{
+	margin: 0;
 }

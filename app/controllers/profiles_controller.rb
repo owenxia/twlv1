@@ -22,9 +22,11 @@ class ProfilesController < ApplicationController
 	end
 
 	def update
-		profile_params[:city].downcase!
-		profile_params[:city].capitalize!
-		if @profile.update(profile_params)
+		@temp = profile_params
+		@temp[:city].downcase!
+		@temp[:city] = @temp[:city].split(' ').map(&:capitalize).join(' ')
+
+		if @profile.update(@temp)
 			flash[:notice] = "Profile updated."
 			redirect_to @profile
 		else
