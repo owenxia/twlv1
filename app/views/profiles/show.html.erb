@@ -123,13 +123,16 @@
             </div>
 
             <div class="panel-body">
-              !!!!!!!!!Placeholder for avatars!!!!!!!
               <ul>
               <% @profile.followers.each do |profile| %>
-                <li><%= profile.firstname %></li>
+                <li>
+                  <%= profile.firstname %>
+                  <%= image_tag avatar_url(profile), class: "avatar-image" %>
+                </li>
+
               <% end %>
               </ul>
-                        </div>
+            </div>
           </div>
 
           <div class="panel panel-warning">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510162550) do
+ActiveRecord::Schema.define(version: 20150511023753) do
 
   create_table "experiences", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150510162550) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.string   "city"
+    t.string   "avatar_url"
   end
 
   create_table "taggings", force: :cascade do |t|
