@@ -43,6 +43,7 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'country_select', git: 'https://github.com/alibabajan/country_select.git'
 gem 'acts-as-taggable-on', '~> 3.5'
 gem 'bootstrap_form', '~> 2.3.0'
+gem 'geocoder', '~> 1.2.8'
 
 
 

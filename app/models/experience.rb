@@ -11,6 +11,9 @@
 #  external_links :text
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  latitude       :float
+#  longitude      :float
+#  location       :string
 #
 
 class Experience < ActiveRecord::Base
@@ -23,4 +26,6 @@ class Experience < ActiveRecord::Base
     tags.join(', ')
   end
 
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
 end

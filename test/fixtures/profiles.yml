@@ -5,14 +5,15 @@
 #  id         :integer          not null, primary key
 #  firstname  :string
 #  lastname   :string
-#  location   :string
+#  country    :string
 #  gender     :string
 #  age        :integer
 #  about      :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  avatar     :attachment
 #  user_id    :integer
+#  city       :string
+#  avatar_url :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

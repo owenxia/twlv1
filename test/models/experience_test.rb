@@ -11,6 +11,9 @@
 #  external_links :text
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  latitude       :float
+#  longitude      :float
+#  location       :string
 #
 
 require 'test_helper'
