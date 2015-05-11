@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   get '/travel-inspirations', to: 'welcome#inspirations'
   get '/how-it-works', to: 'welcome#how_it_works'
-  get '/my-wish-list', to: 'welcome#my_wish_list'
+  match '/my-wish-list', to: 'welcome#my_wish_list', via: [:get]
+  match '/wish-list', to: 'controller#wish_list', via: [:post]
 
   resources :profiles do
     resources :travel_records

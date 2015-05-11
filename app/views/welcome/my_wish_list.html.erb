@@ -1,8 +1,115 @@
-<p>
-  Added to Wish List:
-  <ul>
-  <% current_user.find_liked_items.each do |experience| %>
-    <li> <%= experience.name %> </name>
-  <% end %>
-  </ul>
-</p>
+     <div class="row">
+        <div class="col-md-8">       
+          <h1>My Wish List</h1>
+        </div>
+        <div class="col-md-4">
+          <div class="btn-action-parent">
+            <div class="btn-action-child">
+              <%= link_to 'Create Travel Experience', new_experience_path, class: "btn btn-info btn-sm" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8">  
+
+          <% current_user.find_liked_items.each do |experience| %>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title"><%= experience.name %></h3>
+              </div>
+              <div class="panel-body">
+                <p><%= experience.continent %> > <%= experience.country %> > <%= experience.city.downcase.capitalize %></p>
+                <p><%= experience.description %></p>
+                <p><%= link_to 'Show Details', experience, class: "btn btn-success btn-xs" %></p>
+              </div>
+            </div>
+          <% end %>
+
+        </div> <!-- /col-md-8 -->
+
+        <div class="col-md-4">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">Refine Results</h3>
+            </div>
+            <div class="panel-body">
+
+              <form>
+                <div class="container-filter-options">
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                      Continent
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                      Country
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                      City
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                    </ul>
+                  </div>
+
+                  <input type="text" class="form-control keywords" id="keywords" placeholder="Enter keyword(s)">
+                  
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                      Sort
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                    </ul>
+                  </div>
+
+
+                    <button type="submit" class="btn btn-primary">Show Results</button>
+
+                </div> <!-- /container-filter-options -->
+
+              </form>
+
+            </div>
+          </div>
+          
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Map View</h3>
+            </div>
+            <div class="panel-body">
+              !!!!!!!!!Placeholder for map!!!!!!!
+            </div>
+          </div>
+
+        </div> <!-- /col-md-4 -->
+      </div><!--  /row -->

@@ -9,6 +9,6 @@ class WelcomeController < ApplicationController
   	
   end
   def my_wish_list
-  	
+
   end
 end

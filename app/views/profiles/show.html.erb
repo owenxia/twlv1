@@ -35,17 +35,20 @@
 
                   <div class="parent">
                     <div class="child">
-                      <div>AVATAR</div>
+                      <div class="avatar-display image-display"><%= image_tag avatar_url(@profile), class: "avatar-main" %></div>
                     </div>
                   </div>
 
                 </div>
 
                 <div class="col-md-10">
-                  <p>Login email: <%= @profile.user.email %> 
+                  <p>
+                    Login email: <%= @profile.user.email %>
                     <% if @profile.user == current_user %>
                       <%= link_to 'Edit Login', edit_user_registration_path, class: "btn btn-warning btn-xs" %>
                     <% end %>
+                  </p>
+                  <br>
                   <p>First name: <%= @profile.firstname %></p>
                   <p>Last name: <%= @profile.lastname %></p>
                   <p>Country: <%= @profile.country %></p>
@@ -61,7 +64,7 @@
 
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">More About Me</h3>
+              <h3 class="panel-title">About Me</h3>
             </div>
 
             <div class="panel-body">
@@ -71,7 +74,7 @@
 
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">Where I've Been</h3>
+              <h3 class="panel-title">My Travel Records</h3>
             </div>
 
             <div class="panel-body">
@@ -123,15 +126,14 @@
             </div>
 
             <div class="panel-body">
-              <ul>
-              <% @profile.followers.each do |profile| %>
-                <li>
-                  <%= profile.firstname %>
-                  <%= image_tag avatar_url(profile), class: "avatar-image" %>
-                </li>
 
+              <% @profile.followers.each do |profile| %>
+                <div class="avatar-display">
+                  <div class="avatar-display image-display"><%= link_to image_tag(avatar_url(profile)), profile ,class: "avatar-image" %></div>
+                  <div class="avatar-display  name-display"><%= profile.firstname %> <%= profile.lastname %></div>
+                </div>
               <% end %>
-              </ul>
+
             </div>
           </div>
 
@@ -141,12 +143,14 @@
             </div>
 
             <div class="panel-body">
-              !!!!!!!!!Placeholder for avatars!!!!!!!
-              <ul>
+
               <% @profile.all_following.each do |profile| %>
-                <li><%= profile.firstname %></li>
+                <div class="avatar-display">
+                  <div class="avatar-display image-display"><%= link_to image_tag(avatar_url(profile)), profile ,class: "avatar-image" %></div>
+                  <div class="avatar-display name-display"><%= profile.firstname %> <%= profile.lastname %></div>
+                </div>
               <% end %>
-              </ul>
+
             </div>
           </div>
 

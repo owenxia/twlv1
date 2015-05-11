@@ -130,6 +130,28 @@ h1, h2, h4{
 	margin-bottom: 10px;
 }
 .avatar-image{
-	width: 50px;
-	border-radius: 100%;
+		img{
+			width: 50px;
+			border-radius: 100%;
+		}
+}
+.avatar-main{
+		width: 80px;
+		border-radius: 5px;
+}
+.avatar-display{
+	display: inline-block;
+	padding: 0 5px 0 0;
+	text-align: center;
+	.image-display{
+		display: block;
+
+	}
+	.name-display{
+		font-size: 0.75em;
+		font-weight: 700;
+		margin-top: 2px;
+		display: block;
+
+	}
 }
