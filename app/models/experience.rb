@@ -22,10 +22,10 @@ class Experience < ActiveRecord::Base
 
 	validates :name, presence: true
 
-  def tag_list
-    tags.join(', ')
-  end
+	def tag_list
+	tags.join(', ')
+	end
 
-  geocoded_by :location
-  after_validation :geocode, if: :location_changed?
+	geocoded_by :location
+	after_validation :geocode, if: :location_changed?
 end

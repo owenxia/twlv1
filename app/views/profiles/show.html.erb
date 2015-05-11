@@ -77,13 +77,19 @@
               <h3 class="panel-title">My Travel Records</h3>
             </div>
 
-            <div class="panel-body">
+            <div class="panel-body panel-map">
+
+              <div id="map-travel-records" style='width: 100%; height: 300px;'></div>
+
               <% if @profile.user == current_user %>
-                <%= link_to "Add Travel Record", new_profile_travel_record_path(@profile), class: "btn btn-success btn-xs" %>
-                <br><br>
+                <div class="parent">
+                  <div class="child">
+                    <%= link_to "Add Travel Record", new_profile_travel_record_path(@profile), class: "btn btn-success add-travel-record" %>
+                  </div>
+                </div>
               <% end %>
               
-              <ul>
+              <ul class="block-travel-records">
                 <% @profile.user.travel_records.each do |travel_record| %>
                   <li class="list-travel-record">
                     <%= travel_record.country %>
@@ -93,9 +99,9 @@
                   </li>
                 <% end %>
               </ul>
-      
+
             </div>
-          </div>
+          </div> <!-- /travel-records -->
 
         </div> <!-- /col-md-8 -->
 
@@ -152,8 +158,22 @@
               <% end %>
 
             </div>
-          </div>
+          </div> <!-- /following -->
 
         </div> <!-- /col-md-4 -->
-
       </div><!--  /row -->
+
+<script>
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map-travel-records'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash_travel_records.to_json %>);
+
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  
+  // to center on a marker
+  // handler.map.centerOn(markers[0]); 
+  // to set the map zoom
+  // handler.getMap().setZoom(4);
+});
+</script>

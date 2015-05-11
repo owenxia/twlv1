@@ -128,7 +128,7 @@
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map-experience'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  markers = handler.addMarkers(<%=raw @hash_experience.to_json %>);
 
   //handler.bounds.extendWith(markers);
   //handler.fitMapToBounds();

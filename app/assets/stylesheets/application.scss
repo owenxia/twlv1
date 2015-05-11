@@ -134,6 +134,12 @@ h1, h2, h4{
 }
 .list-travel-record{
 	margin-bottom: 10px;
+	list-style: none;
+	display: inline-block;
+	padding-right: 20px;
+}
+.block-travel-records{
+	padding: 0 15px;
 }
 .avatar-image{
 		img{
@@ -161,9 +167,10 @@ h1, h2, h4{
 
 	}
 }
-#map-experience{
-	//border-radius: 5px;
-}
+
 .panel-map{
 	padding: 0;	
+}
+.add-travel-record{
+	margin: 20px auto 30px auto ;
 }

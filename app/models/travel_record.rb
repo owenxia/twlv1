@@ -12,4 +12,7 @@
 class TravelRecord < ActiveRecord::Base
  	belongs_to :user
  	validates :country, presence: true
+
+ 	geocoded_by :country
+    after_validation :geocode, if: :country_changed?
 end

@@ -7,6 +7,10 @@ class ProfilesController < ApplicationController
 	end
 
 	def show
+		@hash_travel_records = Gmaps4rails.build_markers(@profile.user.travel_records) do |travel_record, marker|
+			marker.lat travel_record.latitude
+			marker.lng travel_record.longitude
+		end
 	end
 
 	def new

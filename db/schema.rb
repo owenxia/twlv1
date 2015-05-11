@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511111137) do
+ActiveRecord::Schema.define(version: 20150511215348) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"
@@ -96,6 +96,8 @@ ActiveRecord::Schema.define(version: 20150511111137) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "travel_records", ["user_id"], name: "index_travel_records_on_user_id"

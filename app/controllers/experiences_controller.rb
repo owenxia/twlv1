@@ -8,9 +8,9 @@ class ExperiencesController < ApplicationController
 	end
 
 	def show
-		@hash = Gmaps4rails.build_markers(@experience) do |experience, marker|
-		  marker.lat experience.latitude
-		  marker.lng experience.longitude
+		@hash_experience = Gmaps4rails.build_markers(@experience) do |experience, marker|
+			marker.lat experience.latitude
+			marker.lng experience.longitude
 		end
 	end
 
