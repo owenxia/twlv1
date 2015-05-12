@@ -16,6 +16,12 @@ class ExperiencesController < ApplicationController
 		else	
 			@experiences = Experience.all.order('CREATED_AT DESC')
 		end
+
+		@hash_experience_list = Gmaps4rails.build_markers(@experiences) do |experience, marker|
+			marker.lat experience.latitude
+			marker.lng experience.longitude
+		end
+
 	end
 
 	def show

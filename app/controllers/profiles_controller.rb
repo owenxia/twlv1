@@ -60,7 +60,12 @@ class ProfilesController < ApplicationController
 	end
 
 	def wish_list
+		@experiences = @profile.user.find_liked_items
 		
+		@hash_wish_list = Gmaps4rails.build_markers(@experiences) do |experience, marker|
+			marker.lat experience.latitude
+			marker.lng experience.longitude
+		end
 	end
 
 	private

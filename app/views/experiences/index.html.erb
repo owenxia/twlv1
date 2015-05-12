@@ -17,6 +17,15 @@
 
       <div class="row">
         <div class="col-md-8">  
+          <% if params[:search] %>
+         
+            <% if @experiences.empty? %>
+              <div class="results-display-no-result">No such travel experience.</div>
+            <% else %>
+              <div class="results-display">Showing travel experiences of "<%= params[:search] %>":</div>
+            <% end %>
+
+          <% end %>
           <% if params[:tag] %>
             <div class="results-display">Showing travel experiences of "<%= params[:tag] %>":</div>
           <% end %>
@@ -72,87 +81,30 @@
 
             </div>
           </div>
-
-          <div class="panel panel-warning">
-            <div class="panel-heading">
-              <h3 class="panel-title">Refine Results</h3>
-            </div>
-            <div class="panel-body">
-
-              <form>
-                <div class="container-filter-options">
-                  <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                      Continent
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                      Country
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                      City
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                    </ul>
-                  </div>
-
-                  <input type="text" class="form-control keywords" id="keywords" placeholder="Enter keyword(s)">
-                  
-                  <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                      Sort
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                    </ul>
-                  </div>
-
-
-                    <button type="submit" class="btn btn-primary">Show Results</button>
-
-                </div> <!-- /container-filter-options -->
-
-              </form>
-
-            </div>
-          </div>
           
-          <div class="panel panel-success">
+          <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title">Map View</h3>
             </div>
             <div class="panel-body">
-              !!!!!!!!!Placeholder for map!!!!!!!
+              <div id="map-experience-list" style='width: 100%; height: 300px;'></div>
             </div>
           </div>
 
         </div> <!-- /col-md-4 -->
       </div><!--  /row -->
+
+<script>
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map-experience-list'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash_experience_list.to_json %>);
+
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  
+  // to center on a marker
+  //handler.map.centerOn(markers[0]); 
+  // to set the map zoom
+  //handler.getMap().setZoom(4);
+});
+</script>
