@@ -28,6 +28,9 @@ class TravelRecordsController < ApplicationController
 		end
 		if @@to_create
 			@travel_record = @profile.user.travel_records.new(travel_record_params)
+
+			authorize! :create, @travel_record
+
 			if @travel_record.save
 				flash[:notice] = "New travel record created."
 				redirect_to @profile
@@ -44,6 +47,7 @@ class TravelRecordsController < ApplicationController
 	end
 
 	def update
+		authorize! :update, @travel_record
 		if @travel_record.update(travel_record_params)
 			redirect_to @travel_record		
 		else
@@ -52,6 +56,7 @@ class TravelRecordsController < ApplicationController
 	end
 
 	def destroy
+		authorize! :destroy, @travel_record
 		@travel_record.destroy
 		redirect_to @profile
 	end

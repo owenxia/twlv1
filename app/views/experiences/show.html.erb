@@ -102,12 +102,16 @@
 
         <div class="col-md-4">
 
+          <% if can? :edit, @experience %>
           <div class="btn-action-parent">
             <div class="btn-action-child">
               <%= link_to 'Edit Experience', edit_experience_path(@experience), class: "btn btn-warning btn-sm" %>
               <%= link_to 'Delete Experience', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
             </div>
           </div>
+          <% end %>
+
+
 
           <div class="panel panel-default"><!-- map -->
             <div class="panel-heading">

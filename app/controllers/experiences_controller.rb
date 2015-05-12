@@ -31,6 +31,7 @@ class ExperiencesController < ApplicationController
 	end
 
 	def create
+		authorize! :create, @experience
 		@temp = experience_params
 		@temp[:city].downcase!
 		@temp[:city].capitalize!
@@ -51,6 +52,7 @@ class ExperiencesController < ApplicationController
 	end
 
 	def update
+		authorize! :update, @experience
 		@temp = experience_params
 		@temp[:city].downcase!
 		@temp[:city] = @temp[:city].split(' ').map(&:capitalize).join(' ')
@@ -67,6 +69,7 @@ class ExperiencesController < ApplicationController
 	end
 
 	def destroy
+		authorize! :destroy, @experience
 		@experience.destroy
 		redirect_to experiences_path
 	end

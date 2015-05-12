@@ -12,5 +12,10 @@ class ApplicationController < ActionController::Base
 
 	def after_sign_in_path_for(resource)
 	  session[:previous_url] || root_path
-end
+	end
+
+	rescue_from CanCan::AccessDenied do |exception|
+		flash[:alert] = "Not authorized."
+		redirect_to root_path
+	end
 end

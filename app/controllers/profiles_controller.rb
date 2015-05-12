@@ -26,6 +26,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def update
+		authorize! :update, @profile
 		@temp = profile_params
 		@temp[:city].downcase!
 		@temp[:city] = @temp[:city].split(' ').map(&:capitalize).join(' ')
