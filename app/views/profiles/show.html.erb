@@ -1,24 +1,27 @@
       <div class="row">
         <div class="col-md-8">       
-          <h1>My Profile</h1>
+          <% if @profile.user == current_user %>
+            <h1 class="profile-heading">My Profile</h1>
+          <% else %>
+            <h1 class="profile-heading"><%= @profile.firstname %> <%= @profile.lastname %>'s Profile</h1>
+          <% end %>
+
+          <div class="profile-button">
+            <% if @profile.user == current_user %>
+              <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-warning btn-sm" %>
+            <% end %>
+            <%= link_to 'View Wish List', wish_list_profile_path(@profile), class: "btn btn-primary btn-sm" %>
+
+            <% if @profile.followers.include?(current_user.profile) %>
+              <%= link_to 'Unfollow', unfollow_profile_path(@profile), class: "btn btn-default btn-sm" %>
+            <% elsif current_user.profile!= @profile %>
+              <%= link_to 'Follow', follow_profile_path(@profile), class: "btn btn-success btn-sm" %>
+            <% end %>
+          </div>
+
         </div>
         <div class="col-md-4">
-          <div class="btn-action-parent">
-            <div class="btn-action-child">
-              
-              <% if @profile.user == current_user %>
-                <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-warning" %>
-              <% end %>
-              <%= link_to 'View Wish List', wish_list_profile_path, class: "btn btn-primary" %>
-
-              <% if @profile.followers.include?(current_user.profile) %>
-                <%= link_to 'Unfollow', unfollow_profile_path(@profile), class: "btn btn-default" %>
-              <% elsif current_user.profile!= @profile %>
-                <%= link_to 'Follow', follow_profile_path(@profile), class: "btn btn-success" %>
-              <% end %>
-
-            </div>
-          </div>
+  
         </div>
       </div>
 
@@ -55,7 +58,7 @@
                   <p>City: <%= @profile.city %></p>
                   <p>Gender: <%= @profile.gender %></p>
                   <p>Age: <%= @profile.age %></p>
-                  <p>Travel Interests: <%= @profile.tag_list %></p>
+                  <p>Travel Interests: <%= @profile.tag_list%></p>
                 </div> <!-- /col-md-10 -->   
 
               </div> <!-- /row -->
@@ -94,7 +97,7 @@
                   <li class="list-travel-record">
                     <%= travel_record.country %>
                     <% if @profile.user == current_user %>
-                      <%= link_to 'Delete', profile_travel_record_path(@profile, travel_record), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+                      <%= link_to raw("<span class='glyphicon glyphicon-remove-circle remove-travel-record'></span>"), profile_travel_record_path(@profile, travel_record), method: :delete, data: { confirm: 'Are you sure?' } %>
                     <% end %>
                   </li>
                 <% end %>

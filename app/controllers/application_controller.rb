@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
 
 	rescue_from CanCan::AccessDenied do |exception|
 		flash[:alert] = "Not authorized."
-		redirect_to root_path
+		redirect_to :back
 	end
 end

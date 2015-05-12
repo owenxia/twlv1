@@ -17,12 +17,12 @@
 #
 
 class Experience < ActiveRecord::Base
-	acts_as_taggable
-	acts_as_votable
-
 	has_many :reviews, dependent: :destroy
 
 	validates :name, presence: true
+
+	acts_as_taggable
+	acts_as_votable
 
 	def tag_list
 		tags.join(', ')

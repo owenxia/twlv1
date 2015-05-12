@@ -18,6 +18,7 @@
 
 class Profile < ActiveRecord::Base
 	belongs_to :user
+	
 	acts_as_taggable
 	acts_as_followable
 	acts_as_follower

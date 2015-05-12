@@ -68,7 +68,11 @@ class ProfilesController < ApplicationController
 		params.require(:profile).permit(:firstname, :lastname, :country, :city, :gender, :age, :about, :tag_list, :avatar_url)
 	end
 	def set_profile
-		@profile = Profile.find(params[:id])
+		if params[:id] 
+			@profile = Profile.find(params[:id])
+		else
+			@profile = current_user.profile if @profile.nil?
+		end
 	end
 
 

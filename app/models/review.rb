@@ -14,6 +14,8 @@ class Review < ActiveRecord::Base
   belongs_to :experience
   belongs_to :user
 
+  validates :body, presence: true
+
   def set_user(id)
   	User.find(id)
   end

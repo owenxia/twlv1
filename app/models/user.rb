@@ -23,9 +23,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_one :profile
+
+  has_one :profile, dependent: :destroy
   has_many :travel_records, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  
   acts_as_voter
 
 end
