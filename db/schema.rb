@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511215348) do
+ActiveRecord::Schema.define(version: 20150512005205) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150511215348) do
     t.integer  "rgt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "experience_id"
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
@@ -70,6 +71,16 @@ ActiveRecord::Schema.define(version: 20150511215348) do
     t.string   "city"
     t.string   "avatar_url"
   end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "experience_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "user_id"
+  end
+
+  add_index "reviews", ["experience_id"], name: "index_reviews_on_experience_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

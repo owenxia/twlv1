@@ -56,20 +56,33 @@
             </div>
           </div><!-- /external links -->
 
-          <div class="panel panel-info"><!-- experience comments -->
+          <div class="panel panel-info"><!-- experience reviews -->
             <div class="panel-heading">
-              <h3 class="panel-title">Comments</h3>
+              <h3 class="panel-title">Experience Reviews</h3>
             </div>
 
             <div class="panel-body">
-              !!!!!!!!!Placeholder for the comments!!!!!!!
+              <% if @experience.reviews.first.body.nil? %>
+                <p>No review yet. </p>
+              <% else %>
 
+                <% @experience.reviews.each do |review| %>
+                  <p> 
+                    <!-- upon page loading, a new empty review is created for experience to be used as new reveiw input, which cannot be edited -->
+                    <% if !review.id.nil? %> 
+                      <%= review.body %>
+                      <%= link_to 'Edit', edit_experience_review_path(review.experience, review) %>
+                      <%= link_to 'Delete', experience_review_path(review.experience, review), method: :delete, data: {confirm: 'Are you sure?'} %>
+                    <% end %>
+                  </p>
+                <% end %>
+              
+              <% end %>
 
-
-
+              <%= render 'reviews/form' %>
 
             </div>
-          </div><!-- /experience comments -->
+          </div><!-- /experience reviews -->
         </div> <!-- /col-md-8 -->
 
         <div class="col-md-4">

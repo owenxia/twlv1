@@ -47,6 +47,7 @@ gem 'geocoder', '~> 1.2.8'
 gem 'gmaps4rails', '~> 2.1.2'
 gem 'underscore-rails', '~> 1.8.2'
 gem 'social-share-button'
+gem 'acts_as_commentable_with_threading', '~> 2.0.0'
 
 
 

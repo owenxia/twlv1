@@ -12,6 +12,9 @@ class ExperiencesController < ApplicationController
 			marker.lat experience.latitude
 			marker.lng experience.longitude
 		end
+
+		@review = @experience.reviews.new
+		
 	end
 
 	def new

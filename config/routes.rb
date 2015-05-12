@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   end
 
   resources :experiences do
+      resources :comments
+      resources :reviews
       member do
     	put "like", to: "experiences#add"
     	put "dislike", to: "experiences#remove"

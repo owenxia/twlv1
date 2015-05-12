@@ -19,6 +19,10 @@
 class Experience < ActiveRecord::Base
 	acts_as_taggable
 	acts_as_votable
+	acts_as_commentable
+
+	has_many :comments
+	has_many :reviews
 
 	validates :name, presence: true
 
