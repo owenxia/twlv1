@@ -19,10 +19,9 @@
 class Experience < ActiveRecord::Base
 	acts_as_taggable
 	acts_as_votable
-	acts_as_commentable
 
-	has_many :comments
-	has_many :reviews
+	has_many :comments, dependent: :destroy
+	has_many :reviews, dependent: :destroy
 
 	validates :name, presence: true
 

@@ -67,18 +67,26 @@
               <% else %>
 
                 <% @experience.reviews.each do |review| %>
-                  <p> 
+                  <div class="review-display"> 
                     <!-- upon page loading, a new empty review is created for experience to be used as new reveiw input, which cannot be edited -->
                     <% if !review.id.nil? %> 
-                      <%= review.body %>
-                      <%= link_to 'Edit', edit_experience_review_path(review.experience, review) %>
-                      <%= link_to 'Delete', experience_review_path(review.experience, review), method: :delete, data: {confirm: 'Are you sure?'} %>
-                    <% end %>
-                  </p>
-                <% end %>
-              
-              <% end %>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="avatar-display image-display"><%= link_to image_tag(avatar_url(review.user.profile)), review.user.profile ,class: "avatar-image" %></div>
+                        </div>
+                        <div class="col-md-8">
+                          <%= review.body %>
 
+                          <%= link_to 'Delete', experience_review_path(review.experience, review), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger btn-xs pull-right add-left-margin" %> 
+
+                          <%= link_to 'Edit', edit_experience_review_path(review.experience, review), class: "btn btn-warning btn-xs pull-right add-left-margin" %>
+                        </div>   
+                      </div> <!-- /row -->
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+              <br>
               <%= render 'reviews/form' %>
 
             </div>

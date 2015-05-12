@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_one :profile
   has_many :travel_records, dependent: :destroy
-
+  has_many :reviews, dependent: :destroy
   acts_as_voter
 
 end
