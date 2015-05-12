@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   match '/my-wish-list', to: 'welcome#my_wish_list', via: [:get]
   match '/wish-list', to: 'controller#wish_list', via: [:post]
 
+  get 'experiences/tag/:tag', to: 'experiences#index', as: :tag
+  get 'experiences/continent/:continent', to: 'experiences#index', as: :continent
+  get 'experiences/country/:country', to: 'experiences#index', as: :country
+  get 'experiences/city/:city', to: 'experiences#index', as: :city
+
+
   resources :profiles do
     resources :travel_records
     member do

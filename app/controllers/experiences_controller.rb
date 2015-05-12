@@ -3,8 +3,17 @@ class ExperiencesController < ApplicationController
 	before_action :set_experience, only: [:show, :edit, :update, :destroy, :add, :remove]
 
 	def index
-		@experiences = Experience.all.order('CREATED_AT DESC')
-
+		if params[:tag]
+			@experiences = Experience.tagged_with(params[:tag])
+		elsif params[:continent]
+			@experiences = Experience.where("continent = ?", params[:continent])
+		elsif params[:country]
+			@experiences = Experience.where("country = ?", params[:country])
+		elsif params[:city]
+			@experiences = Experience.where("city = ?", params[:city])
+		else	
+			@experiences = Experience.all.order('CREATED_AT DESC')
+		end
 	end
 
 	def show

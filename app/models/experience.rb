@@ -26,7 +26,7 @@ class Experience < ActiveRecord::Base
 	validates :name, presence: true
 
 	def tag_list
-	tags.join(', ')
+		tags.join(', ')
 	end
 
 	geocoded_by :location

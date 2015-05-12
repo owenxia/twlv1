@@ -13,6 +13,18 @@
 
       <div class="row">
         <div class="col-md-8">  
+          <% if params[:tag] %>
+            <div class="results-display">Showing travel experiences of "<%= params[:tag] %>":</div>
+          <% end %>
+          <% if params[:continent] %>
+            <div class="results-display">Showing travel experiences of "<%= params[:continent] %>":</div>
+          <% end %>
+          <% if params[:country] %>
+            <div class="results-display">Showing travel experiences of "<%= params[:country] %>":</div>
+          <% end %>
+          <% if params[:city] %>
+            <div class="results-display">Showing travel experiences of "<%= params[:city] %>":</div>
+          <% end %>
 
           <% @experiences.each do |experience| %>
             <div class="panel panel-info">

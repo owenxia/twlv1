@@ -3,16 +3,18 @@
         <div class="col-md-8">
           
           <ol class="breadcrumb">
-            <li><a href="#"><%= @experience.continent %></a></li>
-            <li><a href="#"><%= @experience.country %></a></li>
-            <li class="active"><%= @experience.city %></li>
+            <li><%= link_to @experience.continent, continent_path(@experience.continent) %></li>
+            <li><%= link_to @experience.country, country_path(@experience.country) %></li>
+            <li class="active"><%= link_to @experience.city, city_path(@experience.city) %></li>
           </ol> 
 
           <h1><%= @experience.name %></h1>
 
           <%= social_share_button_tag(@experience.name) %>
 
-          <p class="text-warning"><i>Keywords: <%= @experience.tag_list %></i></p>
+          <p class="text-info"><i><span class="glyphicon glyphicon-tag"></span> 
+            <%= raw @experience.tags.map {|tag| link_to tag, tag_path(tag.name)}.join(', <span class="glyphicon glyphicon-tag"></span> ') %>
+          </i></p>
 
           <div class="btn-action-parent">
             <div class="btn-action-child">
