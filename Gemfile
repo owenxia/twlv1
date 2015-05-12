@@ -46,7 +46,8 @@ gem 'bootstrap_form', '~> 2.3.0'
 gem 'geocoder', '~> 1.2.8'
 gem 'gmaps4rails', '~> 2.1.2'
 gem 'underscore-rails', '~> 1.8.2'
-gem 'social-share-button'
+gem 'social-share-button', '~> 0.1.8'
+gem 'searchkick', '~> 0.8.7'
 
 
 group :development, :test do

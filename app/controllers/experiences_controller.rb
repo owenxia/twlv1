@@ -3,7 +3,9 @@ class ExperiencesController < ApplicationController
 	before_action :set_experience, only: [:show, :edit, :update, :destroy, :add, :remove]
 
 	def index
-		if params[:tag]
+		if params[:search]
+			@experiences = Experience.search(params[:search])
+		elsif params[:tag]
 			@experiences = Experience.tagged_with(params[:tag])
 		elsif params[:continent]
 			@experiences = Experience.where("continent = ?", params[:continent])

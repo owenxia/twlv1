@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   end
 
   resources :experiences do
+      collection do
+        get 'index'
+      end
       resources :comments
       resources :reviews
       member do
