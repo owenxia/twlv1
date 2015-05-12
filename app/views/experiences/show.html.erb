@@ -3,9 +3,9 @@
         <div class="col-md-8">
           
           <ol class="breadcrumb">
-            <li><%= link_to @experience.continent, continent_path(@experience.continent) %></li>
-            <li><%= link_to @experience.country, country_path(@experience.country) %></li>
-            <li class="active"><%= link_to @experience.city, city_path(@experience.city) %></li>
+            <li><%= link_to @experience.continent, continent_path(@experience.continent) if !@experience.continent.empty? %></li>
+            <li><%= link_to @experience.country, country_path(@experience.country) if !@experience.country.empty? %></li>
+            <li class="active"><%= link_to @experience.city, city_path(@experience.city) if !@experience.city.empty? %></li>
           </ol> 
 
           <h1><%= @experience.name %></h1>
@@ -145,7 +145,11 @@
             </div>
 
             <div class="panel-body">
-              !!!!!!!!!Placeholder for experience thumbnails!!!!!!!
+              <% Experience.tagged_with(@experience.tags, any: true).each do |experience| %>
+                <% if @experience != experience %>
+                  <div class="related-experiences"><%= link_to experience.name, experience_path(experience) %><div>
+                <% end %>
+              <% end %>
             </div>
           </div><!-- /related experiences -->
         </div> <!-- /col-md-4 -->

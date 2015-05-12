@@ -44,6 +44,7 @@ class ReviewsController < ApplicationController
 
 	def destroy
 		@review.destroy
+		flash[:notice] = "Review deleted."
 		redirect_to @experience
 	end
 

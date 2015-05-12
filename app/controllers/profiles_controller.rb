@@ -29,6 +29,11 @@ class ProfilesController < ApplicationController
 		@temp = profile_params
 		@temp[:city].downcase!
 		@temp[:city] = @temp[:city].split(' ').map(&:capitalize).join(' ')
+		@temp[:firstname].downcase!
+		@temp[:firstname].capitalize!
+		@temp[:lastname].downcase!
+		@temp[:lastname].capitalize!
+
 
 		if @profile.update(@temp)
 			flash[:notice] = "Profile updated."
