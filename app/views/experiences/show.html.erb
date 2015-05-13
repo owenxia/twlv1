@@ -133,10 +133,12 @@
             <div class="panel-body">
               <!-- behaviors defined by gem acts_as_votable -->
               <% @experience.votes_for.up.voters.each do |user| %>
-                <div class="avatar-display">
-                  <div class="avatar-display image-display"><%= link_to image_tag(avatar_url(user.profile)), user.profile ,class: "avatar-image" %></div>
-                  <div class="avatar-display name-display"><%= user.profile.firstname %> <%= user.profile.lastname %></div>
-                </div>
+                <% if !user.profile.nil? %>
+                  <div class="avatar-display">
+                    <div class="avatar-display image-display"><%= link_to image_tag(avatar_url(user.profile)), user.profile ,class: "avatar-image" %></div>
+                    <div class="avatar-display name-display"><%= user.profile.firstname %> <%= user.profile.lastname %></div>
+                  </div>
+                <% end %>
               <% end %>
 
             </div>

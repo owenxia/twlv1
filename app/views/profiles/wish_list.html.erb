@@ -29,7 +29,7 @@
               </div>
               <div class="panel-body">
                 <p><%= experience.continent %> > <%= experience.country %> > <%= experience.city.downcase.capitalize %></p>
-                <p><%= experience.description %></p>
+                <p><%= (experience.description).html_safe %></p>
                 <p><%= link_to 'Show Details', experience, class: "btn btn-success btn-xs" %></p>
               </div>
             </div>

@@ -30,6 +30,11 @@ h1, h2, h4{
 	font-weight: 700;
 }
 
+img{
+    //width:100%;
+    max-width:600px;
+}
+
 .container{
 	width: 80%;
 	margin-bottom: 50px;
@@ -159,6 +164,7 @@ h1, h2, h4{
 	display: inline-block;
 	padding: 0 5px 0 0;
 	text-align: center;
+	vertical-align: top;
 	.image-display{
 		display: block;
 
