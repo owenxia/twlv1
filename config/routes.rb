@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   
   get '/how-it-works', to: 'welcome#how_it_works'
   get '/travel-inspirations', to: 'welcome#inspirations'
-  
-
   get 'experiences/tag/:tag', to: 'experiences#index', as: :tag
   get 'experiences/continent/:continent', to: 'experiences#index', as: :continent
   get 'experiences/country/:country', to: 'experiences#index', as: :country
@@ -26,9 +24,6 @@ Rails.application.routes.draw do
   end
 
   resources :experiences do
-      collection do
-        get 'index'
-      end
       resources :comments
       resources :reviews
       member do

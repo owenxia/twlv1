@@ -48,6 +48,8 @@ gem 'gmaps4rails', '~> 2.1.2'
 gem 'underscore-rails', '~> 1.8.2'
 gem 'social-share-button', '~> 0.1.8'
 gem 'searchkick', '~> 0.8.7'
+gem 'kaminari', '~> 0.16.3'
+
 
 
 group :development, :test do
