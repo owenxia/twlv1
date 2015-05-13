@@ -49,7 +49,7 @@ gem 'underscore-rails', '~> 1.8.2'
 gem 'social-share-button', '~> 0.1.8'
 gem 'searchkick', '~> 0.8.7'
 gem 'kaminari', '~> 0.16.3'
-
+gem 'will_paginate', '~> 3.0.7'
 
 
 group :development, :test do

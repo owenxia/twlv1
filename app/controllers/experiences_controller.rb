@@ -14,7 +14,8 @@ class ExperiencesController < ApplicationController
 		elsif params[:city]
 			@experiences = Experience.where("city = ?", params[:city]).page(params[:page]).per(5)
 		else	
-			@experiences = Experience.all.order('name').page(params[:page]).per(5)
+			#@experiences = Experience.all.order('name').page(params[:page]).per(5)
+			@experiences = Experience.paginate(page: params[:page], per_page:2)
 		end
 
 		@hash_experience_list = Gmaps4rails.build_markers(@experiences) do |experience, marker|

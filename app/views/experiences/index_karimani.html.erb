@@ -39,12 +39,32 @@
             <div class="results-display">Showing travel experiences of "<%= params[:city] %>":</div>
           <% end %>
 
-          
-          <div id="experiences">
-            <%= render @experiences %>
-          </div>
-          <div class="pull-right"><%= will_paginate @experiences %></div>
+          <% @experiences.each do |experience| %>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title"><%= link_to experience.name, experiences_path(experience) %></h3>
+              </div>
+              <div class="panel-body">
+                <p>
+                  <% if !experience.continent.empty? %>
+                    <%= link_to experience.continent, continent_path(experience.continent) %>
+                    > 
+                  <% end %>
+                  <% if !experience.country.empty? %> 
+                    <%= link_to experience.country, country_path(experience.country) %>
+                    >
+                  <% end %> 
+                  <% if !experience.city.empty? %>
+                    <%= link_to experience.city, city_path(experience.city) %>
+                  <% end %>
+                </p>
+                <p><%= experience.description %></p>
+                <p><%= link_to 'Show Details', experience, class: "btn btn-success btn-xs" %></p>
+              </div>
+            </div>
+          <% end %>
 
+          <div class="pull-right"><%= paginate @experiences %> </div>
 
         </div> <!-- /col-md-8 -->
 
