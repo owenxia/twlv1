@@ -50,6 +50,9 @@ gem 'social-share-button', '~> 0.1.8'
 gem 'searchkick', '~> 0.8.7'
 gem 'kaminari', '~> 0.16.3'
 gem 'will_paginate', '~> 3.0.7'
+gem 'paperclip', '~> 4.2.1'
+gem 'ckeditor', '~> 4.1.1'
+gem 'rmagick', '~> 2.15.0'
 
 
 group :development, :test do

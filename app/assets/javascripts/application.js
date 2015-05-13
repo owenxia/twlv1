@@ -18,6 +18,7 @@
 //= require underscore
 //= require gmaps/google
 //= require social-share-button
+//= require ckeditor/init
 
 $(document).ready(function() {
   if ($('.pagination').length) {

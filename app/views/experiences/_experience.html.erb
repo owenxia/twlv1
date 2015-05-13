@@ -16,7 +16,7 @@
                     <%= link_to experience.city, city_path(experience.city) %>
                   <% end %>
                 </p>
-                <p><%= experience.description %></p>
+                <p><%= (experience.description).html_safe %></p>
                 <p><%= link_to 'Show Details', experience, class: "btn btn-success btn-xs" %></p>
               </div>
             </div>

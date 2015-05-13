@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512063810) do
+ActiveRecord::Schema.define(version: 20150513145545) do
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"
@@ -43,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150512063810) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "location"
+    t.string   "slug"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -70,6 +87,7 @@ ActiveRecord::Schema.define(version: 20150512063810) do
     t.integer  "user_id"
     t.string   "city"
     t.string   "avatar_url"
+    t.string   "slug"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -78,6 +96,7 @@ ActiveRecord::Schema.define(version: 20150512063810) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
+    t.string   "slug"
   end
 
   add_index "reviews", ["experience_id"], name: "index_reviews_on_experience_id"
@@ -109,6 +128,7 @@ ActiveRecord::Schema.define(version: 20150512063810) do
     t.datetime "updated_at", null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "slug"
   end
 
   add_index "travel_records", ["user_id"], name: "index_travel_records_on_user_id"
