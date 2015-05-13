@@ -43,7 +43,7 @@
           <div id="experiences">
             <%= render @experiences %>
           </div>
-          <div class="pull-right"><%= will_paginate @experiences %></div>
+          <div class="text-center"><%= will_paginate @experiences, renderer: BootstrapPagination::Rails %></div>
 
 
         </div> <!-- /col-md-8 -->
