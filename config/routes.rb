@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticated :user do
-    root to: "profiles#show", as: :authenticated_root
+    root to: "experiences#index", as: :authenticated_root
   end
   root to: 'welcome#index'
   
