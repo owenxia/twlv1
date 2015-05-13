@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
 		@hash_travel_records = Gmaps4rails.build_markers(@profile.user.travel_records) do |travel_record, marker|
 			marker.lat travel_record.latitude
 			marker.lng travel_record.longitude
+			marker.infowindow "<div style='width:100%;height:100%;'>#{travel_record.country}</div>"
 		end
 	end
 
@@ -65,6 +66,7 @@ class ProfilesController < ApplicationController
 		@hash_wish_list = Gmaps4rails.build_markers(@experiences) do |experience, marker|
 			marker.lat experience.latitude
 			marker.lng experience.longitude
+			marker.infowindow "<div style='width:250px;height:100%;'><a href='experiences/#{experience.id}'>#{experience.name}</a></div>"
 		end
 	end
 

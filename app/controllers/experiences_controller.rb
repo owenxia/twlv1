@@ -20,6 +20,7 @@ class ExperiencesController < ApplicationController
 		@hash_experience_list = Gmaps4rails.build_markers(@experiences) do |experience, marker|
 			marker.lat experience.latitude
 			marker.lng experience.longitude
+			marker.infowindow "<div style='width:250px;height:100%;'><a href='experiences/#{experience.id}'>#{experience.name}</a></div>"
 		end
 
 	end
@@ -28,6 +29,7 @@ class ExperiencesController < ApplicationController
 		@hash_experience = Gmaps4rails.build_markers(@experience) do |experience, marker|
 			marker.lat experience.latitude
 			marker.lng experience.longitude
+			marker.infowindow "<div style='width:250px;height:100%;'><a href='experiences/#{experience.id}'>#{experience.name}</a></div>"
 		end
 
 		@review = @experience.reviews.new
