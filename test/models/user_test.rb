@@ -16,6 +16,9 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  role                   :string
+#  provider               :string
+#  uid                    :string
+#  username               :string
 #
 
 require 'test_helper'

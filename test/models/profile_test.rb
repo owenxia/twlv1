@@ -14,6 +14,7 @@
 #  user_id    :integer
 #  city       :string
 #  avatar_url :string
+#  slug       :string
 #
 
 require 'test_helper'

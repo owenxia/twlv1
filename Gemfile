@@ -32,6 +32,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# gem 'will_paginate', '~> 3.0.7'
+# gem 'will_paginate-bootstrap', '~> 1.0.1'
+
 gem 'devise', '~> 3.4.1'
 gem 'annotate', '~> 2.6.8'
 gem 'simple_form', '~> 3.1.0'
@@ -52,10 +55,10 @@ gem 'kaminari', '~> 0.16.3'
 gem 'paperclip', '~> 4.2.1'
 gem 'ckeditor', '~> 4.1.1'
 gem 'rmagick', '~> 2.15.0'
-gem 'omniauth-twitter', '~> 1.2.0'
-# gem 'will_paginate', '~> 3.0.7'
-# gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem "font-awesome-rails", '~> 4.3.0.0'
+gem 'omniauth-twitter', '~> 1.2.0'
+gem 'omniauth-facebook', '~> 2.0.1'
+
 
 
 
