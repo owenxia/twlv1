@@ -80,7 +80,7 @@
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map-experience-list'}}, function(){
-    markers = handler.addMarkers(<%=raw @hash_experience_list.to_json %>);
+    markers = handler.addMarkers(<%= @hash_experience_list.to_json.html_safe %>);
 
     // if there's only one marker, center map, zoom out
     <% if @hash_experience_list.size == 1 %>

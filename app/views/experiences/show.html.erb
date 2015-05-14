@@ -13,7 +13,7 @@
           <%= social_share_button_tag(@experience.name) %>
 
           <p class="text-info"><i><span class="glyphicon glyphicon-tag"></span> 
-            <%= raw @experience.tags.map {|tag| link_to tag, tag_path(tag.name)}.join(', <span class="glyphicon glyphicon-tag"></span> ') %>
+            <%= @experience.tags.map {|tag| link_to tag, tag_path(tag.name)}.join(', <span class="glyphicon glyphicon-tag"></span> ').html_safe %>
           </i></p>
 
           <div class="btn-action-parent">
@@ -166,7 +166,7 @@
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map-experience'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash_experience.to_json %>);
+  markers = handler.addMarkers(<%= @hash_experience.to_json.html_safe %>);
 
   //handler.bounds.extendWith(markers);
   //handler.fitMapToBounds();

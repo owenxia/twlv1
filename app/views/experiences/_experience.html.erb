@@ -17,6 +17,15 @@
                   <% end %>
                 </p>
                 <p><%= (experience.description).html_safe %></p>
-                <p><%= link_to raw('Show Details <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>'), experience, class: "btn btn-success btn-xs" %></p>
+                <p>
+                  <%= link_to ('Show Details <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>').html_safe, experience, class: "btn btn-primary btn-xs" %>
+                  
+                  <% if current_user.voted_up_on? experience %>
+                    <%= link_to ('Remove from Wish List <span class="glyphicon glyphicon-remove" ari="true"></span>').html_safe, dislike_experience_path(experience), method: :put, class: "btn btn-default btn-xs" %>
+                  <% else %>
+                    <%= link_to ('Add to Wish List <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').html_safe, like_experience_path(experience), method: :put, class: "btn btn-success btn-xs" %> 
+                  <% end %>
+                
+                </p>
               </div>
             </div>

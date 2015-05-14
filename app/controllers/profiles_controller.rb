@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:wish_list]
 	before_action :set_profile, except: [:index]
 
 	def index

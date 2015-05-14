@@ -48,7 +48,7 @@
                   <p>
                     Login email: <%= @profile.user.email %>
                     <% if @profile.user == current_user %>
-                      <%= link_to raw("<span class='glyphicon glyphicon-edit'></span>"), edit_user_registration_path, class: "btn btn-warning btn-xs" %>
+                      <%= link_to ("<span class='glyphicon glyphicon-edit'></span>").html_safe, edit_user_registration_path, class: "btn btn-warning btn-xs" %>
                     <% end %>
                   </p>
                   <br>
@@ -169,7 +169,7 @@
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map-travel-records'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash_travel_records.to_json %>);
+  markers = handler.addMarkers(<%= @hash_travel_records.to_json.html_safe %>);
 
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();

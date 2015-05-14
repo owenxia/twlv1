@@ -58,6 +58,7 @@ class TravelRecordsController < ApplicationController
 	def destroy
 		authorize! :destroy, @travel_record
 		@travel_record.destroy
+		flash[:notice] = "Travel record deleted."
 		redirect_to @profile
 	end
 
