@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
 			flash[:notice] = "Review created."
 			redirect_to @experience
 		else
-			render 'new'
+			render 'experiences/show'
 		end
 	end
 
@@ -38,7 +38,7 @@ class ReviewsController < ApplicationController
 			flash[:notice] = "Review updated."
 			redirect_to @experience
 		else
-			render 'new'
+			render 'edit'
 		end
 	end
 
