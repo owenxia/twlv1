@@ -44,8 +44,8 @@
           <div id="experiences">
             <%= render @experiences %>
           </div>
-          <div class="text-center"><%= will_paginate @experiences, renderer: BootstrapPagination::Rails %></div>
 
+          <div class="text-center"><%= paginate @experiences %></div>
 
         </div> <!-- /col-md-8 -->
 
