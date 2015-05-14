@@ -179,6 +179,7 @@ img{
 }
 
 .panel-map{
+	margin: 0;
 	padding: 0;	
 }
 .add-travel-record{
@@ -227,4 +228,9 @@ img{
 }
 .narrower-nav-top{
 	width: 80%;
+}
+.gray-link{
+	a{
+	color: #468847;
+	}
 }

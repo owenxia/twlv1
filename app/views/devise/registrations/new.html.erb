@@ -9,11 +9,6 @@
     <%= f.email_field :email, autofocus: true, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, class: "form-control" %>
-  </div>
-
   <% if f.object.password_required? %>
   
     <div class="field">

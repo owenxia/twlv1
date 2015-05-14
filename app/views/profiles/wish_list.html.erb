@@ -1,6 +1,6 @@
      <div class="row">
         <div class="col-md-8">       
-          <% if @profile.user = current_user %>
+          <% if @profile.user == current_user %>
             <h1>My Wish List</h1>
           <% else %>
             <h1><%= @profile.firstname %> <%= @profile.lastname %>'s Wish List</h1>
