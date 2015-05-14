@@ -55,14 +55,18 @@
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map-wish-list'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash_wish_list.to_json %>);
-
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-  
-  // to center on a marker
-  //handler.map.centerOn(markers[0]); 
-  // to set the map zoom
-  //handler.getMap().setZoom(4);
+    markers = handler.addMarkers(<%=raw @hash_wish_list.to_json %>);
+    
+    // if there's only one marker, center map, zoom out
+    <% if @hash_wish_list.size == 1 %>
+      // to center on a marker
+      handler.map.centerOn(markers[0]); 
+      // to set the map zoom
+      handler.getMap().setZoom(4);
+    // if more than one marker, zoom to fit
+    <% else %>
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    <% end %>
 });
 </script>

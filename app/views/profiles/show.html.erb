@@ -167,13 +167,16 @@
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map-travel-records'}}, function(){
   markers = handler.addMarkers(<%=raw @hash_travel_records.to_json %>);
-
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  
-  // to center on a marker
-  // handler.map.centerOn(markers[0]); 
-  // to set the map zoom
-  // handler.getMap().setZoom(4);
+    // if there's only one marker, center map, zoom out
+    <% if @hash_travel_records.size == 1 %>
+      // to center on a marker
+      handler.map.centerOn(markers[0]); 
+      // to set the map zoom
+      handler.getMap().setZoom(4);
+    // if more than one marker, zoom to fit
+    <% else %>
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    <% end %>
 });
 </script>
