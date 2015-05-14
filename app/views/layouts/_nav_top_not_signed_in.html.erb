@@ -18,6 +18,15 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           
           <ul class="nav navbar-nav">
+            
+            <li class=
+              <% if controller.class == WelcomeController && controller.action_name == 'index' %>
+                "active"
+              <% end %>
+            >
+              <%= link_to 'Home', root_path %>
+            </li>
+
 
             <li class=
               <% if controller.class == WelcomeController && controller.action_name == 'how_it_works' %>
@@ -56,7 +65,7 @@
           </ul>
 
           <p class="navbar-text navbar-right">
-            <%= link_to 'Log In', new_user_session_path, class: "navbar-link" %> 
+            <%= link_to 'Sign In', new_user_session_path, class: "navbar-link" %> 
           </p>
 
 

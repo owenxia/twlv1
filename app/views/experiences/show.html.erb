@@ -54,7 +54,7 @@
             </div>
 
             <div class="panel-body">
-              <%= @experience.external_links %>  
+              <%= (@experience.external_links).html_safe %>  
             </div>
           </div><!-- /external links -->
 
@@ -113,7 +113,7 @@
 
 
 
-          <div class="panel panel-default"><!-- map -->
+          <div class="panel panel-info"><!-- map -->
             <div class="panel-heading">
               <h3 class="panel-title">Map</h3>
             </div>
@@ -125,7 +125,7 @@
             </div>
           </div><!-- /map -->
 
-          <div class="panel panel-warning"><!-- users who have added this to wish lists -->
+          <div class="panel panel-success"><!-- users who have added this to wish lists -->
             <div class="panel-heading">
               <h3 class="panel-title">Who Added this to Wish List</h3>
             </div>
