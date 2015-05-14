@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150513145547) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 20150513145547) do
     t.datetime "updated_at"
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"
@@ -44,8 +47,8 @@ ActiveRecord::Schema.define(version: 20150513145547) do
     t.integer  "experience_id"
   end
 
-  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "experiences", force: :cascade do |t|
     t.string   "name"
@@ -59,7 +62,6 @@ ActiveRecord::Schema.define(version: 20150513145547) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "location"
-    t.string   "slug"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -72,8 +74,8 @@ ActiveRecord::Schema.define(version: 20150513145547) do
     t.datetime "updated_at"
   end
 
-  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
-  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "firstname"
@@ -87,7 +89,6 @@ ActiveRecord::Schema.define(version: 20150513145547) do
     t.integer  "user_id"
     t.string   "city"
     t.string   "avatar_url"
-    t.string   "slug"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -96,10 +97,9 @@ ActiveRecord::Schema.define(version: 20150513145547) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
-    t.string   "slug"
   end
 
-  add_index "reviews", ["experience_id"], name: "index_reviews_on_experience_id"
+  add_index "reviews", ["experience_id"], name: "index_reviews_on_experience_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -111,15 +111,15 @@ ActiveRecord::Schema.define(version: 20150513145547) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "travel_records", force: :cascade do |t|
     t.string   "country"
@@ -128,10 +128,9 @@ ActiveRecord::Schema.define(version: 20150513145547) do
     t.datetime "updated_at", null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "slug"
   end
 
-  add_index "travel_records", ["user_id"], name: "index_travel_records_on_user_id"
+  add_index "travel_records", ["user_id"], name: "index_travel_records_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -152,8 +151,8 @@ ActiveRecord::Schema.define(version: 20150513145547) do
     t.string   "username"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"
@@ -167,7 +166,9 @@ ActiveRecord::Schema.define(version: 20150513145547) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "reviews", "experiences"
+  add_foreign_key "travel_records", "users"
 end
