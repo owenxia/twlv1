@@ -55,6 +55,8 @@ gem 'rmagick', '~> 2.15.0'
 gem 'omniauth-twitter', '~> 1.2.0'
 # gem 'will_paginate', '~> 3.0.7'
 # gem 'will_paginate-bootstrap', '~> 1.0.1'
+gem "font-awesome-rails", '~> 4.3.0.0'
+
 
 
 group :development, :test do

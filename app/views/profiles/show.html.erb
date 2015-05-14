@@ -45,20 +45,49 @@
                 </div>
 
                 <div class="col-md-10">
-                  <p>
-                    Login email: <%= @profile.user.email %>
-                    <% if @profile.user == current_user %>
-                      <%= link_to ("Edit <span class='glyphicon glyphicon-edit'></span>").html_safe, edit_user_registration_path, class: "btn btn-warning btn-xs" %>
-                    <% end %>
-                  </p>
-                  <br>
-                  <p>First name: <%= @profile.firstname %></p>
-                  <p>Last name: <%= @profile.lastname %></p>
-                  <p>Country: <%= @profile.country %></p>
-                  <p>City: <%= @profile.city %></p>
-                  <p>Gender: <%= @profile.gender %></p>
-                  <p>Age: <%= @profile.age %></p>
-                  <p>Travel Interests: <%= @profile.tag_list%></p>
+                  <table class="profile-table">
+                    <tr>
+                      <td><strong>Login email:</strong></td> 
+                      <td><%= @profile.user.email %>
+                          <% if @profile.user == current_user %>
+                            <%= link_to ("Edit <span class='glyphicon glyphicon-edit'></span>").html_safe, edit_user_registration_path, class: "btn btn-warning btn-xs" %>
+                          <% end %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><strong>First name:</strong></td>
+                      <td><%= @profile.firstname %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Last name:</strong></td>
+                      <td><%= @profile.lastname %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Country:</strong></td>
+                      <td><%= @profile.country %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>City:</strong> </td>
+                      <td<%= @profile.city %>></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Gender:</strong></td>
+                      <td><%= @profile.gender %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Age:</strong></td>
+                      <td><%= @profile.age %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Travel Interests:</strong> </td>
+                      <td<%= @profile.tag_list%>></td>
+                    </tr>
+                  </table>
+
                 </div> <!-- /col-md-10 -->   
 
               </div> <!-- /row -->
