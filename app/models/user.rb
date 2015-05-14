@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
         user.provider = auth.provider
   			user.uid = auth.uid
   			user.username = auth.info.nickname
+        user.build_profile.avatar_url = auth.info.image
   	end
   end
 
