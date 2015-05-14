@@ -18,14 +18,15 @@
       <div class="row">
         <div class="col-md-8">  
           <% if params[:search] %>
-         
-            <% if @experiences.empty? %>
+            <% if params[:search].empty? %>
+              <div class="results-display-no-result">Please enter a search term.</div>
+            <% elsif @experiences.empty? %>
               <div class="results-display-no-result">No such travel experience.</div>
             <% else %>
               <div class="results-display">Showing travel experiences of "<%= params[:search] %>":</div>
             <% end %>
-
           <% end %>
+
           <% if params[:tag] %>
             <div class="results-display">Showing travel experiences of "<%= params[:tag] %>":</div>
           <% end %>
