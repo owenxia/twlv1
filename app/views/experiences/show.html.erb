@@ -119,8 +119,11 @@
             </div>
 
             <div class="panel-body panel-map">
-
-              <div id="map-experience" style='width: 100%; height: 300px;'></div>
+              <% if !@experience.latitude.nil? and !@experience.longitude.nil? %>
+                <div id="map-experience" style='width: 100%; height: 300px;'></div>
+              <% else %>
+                <p class="location-not-found-block">Location not found on map.</p>
+              <% end %>
 
             </div>
           </div><!-- /map -->

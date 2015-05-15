@@ -66,7 +66,7 @@ class ProfilesController < ApplicationController
 		@hash_wish_list = Gmaps4rails.build_markers(@experiences) do |experience, marker|
 			marker.lat experience.latitude
 			marker.lng experience.longitude
-			marker.infowindow "<div style='width:250px;height:100%;'><a href='experiences/#{experience.id}'>#{experience.name}</a></div>"
+			marker.infowindow "<div style='width:250px;height:100%;'><a href='#{experience.id}'>#{experience.name}</a></div>"
 		end
 	end
 

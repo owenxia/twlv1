@@ -1,7 +1,8 @@
 Geocoder.configure(
 
 
-  # api_key: "AIzaSyCqN9t4s-_oobM4NOzhg7WXw3mx7ZR79Ww"
+  use_https: true,
+  api_key: 'AIzaSyCqN9t4s-_oobM4NOzhg7WXw3mx7ZR79Ww'
   # geocoding options
   # :timeout      => 3,           # geocoding service timeout (secs)
   # :lookup       => :google,     # name of geocoding service (symbol)
