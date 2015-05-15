@@ -9,7 +9,6 @@
 #  updated_at :datetime         not null
 #  latitude   :float
 #  longitude  :float
-#  slug       :string
 #
 
 require 'test_helper'

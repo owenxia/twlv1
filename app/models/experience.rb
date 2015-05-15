@@ -14,7 +14,7 @@
 #  latitude       :float
 #  longitude      :float
 #  location       :string
-#  slug           :string
+#  multimedia     :text
 #
 
 class Experience < ActiveRecord::Base

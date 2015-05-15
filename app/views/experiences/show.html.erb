@@ -44,7 +44,7 @@
             </div>
 
             <div class="panel-body">
-              !!!!!!!!!Placeholder for the photos/videos!!!!!!!
+              <%= (@experience.multimedia).html_safe %>
             </div>
           </div><!-- /multimedia -->
 
@@ -168,13 +168,13 @@ handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map-experience'}}, function(){
   markers = handler.addMarkers(<%= @hash_experience.to_json.html_safe %>);
 
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
+  //handler.bounds.extendWith(markers);
+  //handler.fitMapToBounds();
   
   // to center on a marker
-  // handler.map.centerOn(markers[0]); 
+  handler.map.centerOn(markers[0]); 
   // to set the map zoom
-  // handler.getMap().setZoom(4);
+  handler.getMap().setZoom(4);
 });
 </script>
 
