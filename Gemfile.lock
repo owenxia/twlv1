@@ -100,14 +100,6 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    elasticsearch (1.0.8)
-      elasticsearch-api (= 1.0.7)
-      elasticsearch-transport (= 1.0.7)
-    elasticsearch-api (1.0.7)
-      multi_json
-    elasticsearch-transport (1.0.7)
-      faraday
-      multi_json
     erubis (2.7.0)
     execjs (2.5.2)
     faraday (0.9.1)
@@ -217,10 +209,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    searchkick (0.8.7)
-      activemodel
-      elasticsearch (>= 1)
-      hashie
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -285,7 +273,6 @@ DEPENDENCIES
   rmagick (~> 2.15.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  searchkick (~> 0.8.7)
   simple_form (~> 3.1.0)
   social-share-button (~> 0.1.8)
   spring

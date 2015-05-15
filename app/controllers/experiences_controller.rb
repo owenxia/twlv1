@@ -6,7 +6,7 @@ class ExperiencesController < ApplicationController
 
 	def index
 		if params[:search]
-			@experiences = Experience.search(params[:search])
+			@experiences = Experience.text_search(params[:search]).page(params[:page]).per(5)
 		elsif params[:tag]
 			@experiences = Experience.tagged_with(params[:tag]).page(params[:page]).per(5)
 		elsif params[:continent]
