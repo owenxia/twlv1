@@ -47,7 +47,7 @@ class ExperiencesController < ApplicationController
 	def create
 		authorize! :create, @experience
 
-		set_city_location
+		set_params
 
 		@experience = Experience.new(@temp)
 		
@@ -65,7 +65,7 @@ class ExperiencesController < ApplicationController
 	def update
 		authorize! :update, @experience
 
-		set_city_location
+		set_params
 
 		if @experience.update(@temp)
 			flash[:notice] = "Experience updated."
@@ -98,7 +98,7 @@ class ExperiencesController < ApplicationController
 	def set_experience		
 		@experience = Experience.find(params[:id])
 	end
-	def set_city_location
+	def set_params
 		@temp = experience_params
 		@temp[:name].downcase!
 		@temp[:name] = @temp[:name].split(' ').map(&:capitalize).join(' ')

@@ -30,12 +30,14 @@ class Experience < ActiveRecord::Base
 	end
 
 	geocoded_by :full_location
-	after_validation :geocode, if: :location_changed?
+	after_validation :geocode, if: :country_changed? 
+	after_validation :geocode, if: :city_changed? 
+	after_validation :geocode, if: :location_changed? 
 
 	searchkick
 
 	def full_location
-		"#{:country} #{:location}" 
+		"#{self.country} #{self.city} #{self.location}"
 	end
 
 end
