@@ -234,8 +234,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  config.omniauth :twitter, '1fgE0iK262mukLGxpyFBnGKGo', 'To2BkZUWeDZ7nXiO6ZsKulr3fkdrqLaI4FAmD2Raoo2jhXJAlt'
-  config.omniauth :facebook, "1643913749175474", "7737b8b1a7aaaaca31e1ae41801d8246", image_size: 'large'
+  config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_SECRET']
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET'], image_size: 'large'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
