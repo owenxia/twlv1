@@ -61,7 +61,7 @@ gem 'omniauth-twitter', '~> 1.2.0'
 gem 'omniauth-facebook', '~> 2.0.1'
 gem 'auto_html', '~> 1.6.4'
 gem 'pg_search', '~> 1.0.3'
-
+gem 'figaro', '~> 1.1.0'
 
 
 

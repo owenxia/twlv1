@@ -104,6 +104,8 @@ GEM
     execjs (2.5.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    figaro (1.1.1)
+      thor (~> 0.14)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
     geocoder (1.2.8)
@@ -263,6 +265,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   country_select!
   devise (~> 3.4.1)
+  figaro (~> 1.1.0)
   font-awesome-rails (~> 4.3.0.0)
   geocoder (~> 1.2.8)
   gmaps4rails (~> 2.1.2)
