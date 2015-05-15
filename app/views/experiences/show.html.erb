@@ -64,7 +64,7 @@
             </div>
 
             <div class="panel-body">
-              <% if @experience.reviews.first.body.nil? %>
+              <% if @experience.reviews.first.nil? %>
                 <p>No review yet. </p>
               <% else %>
                 <% @experience.reviews.each do |review| %>

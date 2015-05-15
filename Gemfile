@@ -59,6 +59,8 @@ gem 'rmagick', '~> 2.15.0'
 gem "font-awesome-rails", '~> 4.3.0.0'
 gem 'omniauth-twitter', '~> 1.2.0'
 gem 'omniauth-facebook', '~> 2.0.1'
+gem "auto_html", '~> 1.6.4'
+
 
 
 

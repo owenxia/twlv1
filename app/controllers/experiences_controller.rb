@@ -1,4 +1,6 @@
 class ExperiencesController < ApplicationController
+	include AutoHtml
+
 	before_action :authenticate_user!, except: [:index]
 	before_action :set_experience, only: [:show, :edit, :update, :destroy, :add, :remove]
 
@@ -109,6 +111,12 @@ class ExperiencesController < ApplicationController
 		if @temp[:location].empty?
 			@temp[:location] = @temp[:city]
 		end
+		@temp[:description] = auto_html(@temp[:description]){ simple_format; link(:target => 'blank') }
+		@temp[:description] = @temp[:description][3..(@temp[:description].length-5)] if !@temp[:description].empty?
+		@temp[:multimedia] = (auto_html(@temp[:multimedia]){ simple_format; link(:target => 'blank') })
+		@temp[:multimedia] = @temp[:multimedia][3..(@temp[:multimedia].length-5)] if !@temp[:multimedia].empty?
+		@temp[:external_links] = auto_html(@temp[:external_links]){ simple_format; link(:target => 'blank') }
+		@temp[:external_links] = @temp[:external_links][3..(@temp[:external_links].length-5)] if !@temp[:external_links].empty?
 	end
 
 end
