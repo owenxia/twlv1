@@ -16,7 +16,7 @@
                     <%= link_to experience.city, city_path(experience.city) %>
                   <% end %>
                 </p>
-                <p><%= (experience.description).html_safe %></p>
+                <p><%= (experience.description).truncate(500).html_safe %></p>
                 <p>
                   <%= link_to ('Show Details <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>').html_safe, experience, class: "btn btn-primary btn-xs" %>
                   
