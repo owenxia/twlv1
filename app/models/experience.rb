@@ -40,21 +40,13 @@ class Experience < ActiveRecord::Base
 		"#{self.country} #{self.city} #{self.location}"
 	end
 
+	include PgSearch
+	pg_search_scope :search, against: [:name, :continent, :country, :city, :location, :description, :multimedia, :external_links],
+		using: {tsearch: {dictionary: "english"}}
+
 	def self.text_search(query)
 		if query.present?
-			rank = <<-RANK
-				ts_rank(to_tsvector(name), plainto_tsquery(#{sanitize(query)})) +
-				ts_rank(to_tsvector(description), plainto_tsquery(#{sanitize(query)}))
-			RANK
-			where("	name @@ :q or 
-					continent @@ :q or
-					country @@ :q or
-					city @@ :q or
-					location @@ :q or
-					description @@ :q or
-					multimedia @@ :q or 
-					external_links @@ :q", 
-					q: query).order("#{rank} DESC")
+			search(query)
 		else
 			scoped
 		end
