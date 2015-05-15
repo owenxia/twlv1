@@ -8,7 +8,14 @@
             <li class="active"><%= link_to @experience.city, city_path(@experience.city) if !@experience.city.empty? %></li>
           </ol> 
 
-          <h1><%= @experience.name %></h1>
+          <h1 class="h1-heading"><%= @experience.name %></h1>
+
+          <% if can? :edit, @experience %>
+          <div class="h1-button">
+              <%= link_to 'Edit Experience', edit_experience_path(@experience), class: "btn btn-warning btn-sm" %>
+              <%= link_to 'Delete Experience', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+          </div>
+          <% end %>
 
           <%= social_share_button_tag(@experience.name) %>
 
@@ -101,17 +108,6 @@
         </div> <!-- /col-md-8 -->
 
         <div class="col-md-4">
-
-          <% if can? :edit, @experience %>
-          <div class="btn-action-parent">
-            <div class="btn-action-child">
-              <%= link_to 'Edit Experience', edit_experience_path(@experience), class: "btn btn-warning btn-sm" %>
-              <%= link_to 'Delete Experience', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
-            </div>
-          </div>
-          <% end %>
-
-
 
           <div class="panel panel-info"><!-- map -->
             <div class="panel-heading">
