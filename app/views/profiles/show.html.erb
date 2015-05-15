@@ -48,15 +48,16 @@
                   <table class="profile-table">
                     <tr>
                       <td><strong>Login email:</strong></td> 
-                      <td><%= @profile.user.email %>
-                          <% if @profile.user == current_user %>
-                            <%= link_to ("Edit <span class='glyphicon glyphicon-edit'></span>").html_safe, edit_user_registration_path, class: "btn btn-warning btn-xs" %>
-                          <% end %>
-                      </td>
+                      <td><%= @profile.user.email %></td>
                     </tr>
                     <tr>
                       <td></td>
-                      <td></td>
+                      <td>      
+                        <% if @profile.user == current_user %>
+                          <%= link_to ("Edit <span class='glyphicon glyphicon-edit'></span>").html_safe, edit_user_registration_path, class: "btn btn-warning btn-xs" %>
+                        <% end %>
+
+                      </td>
                     </tr>
                     <tr>
                       <td><strong>First name:</strong></td>

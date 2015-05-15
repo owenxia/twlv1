@@ -74,9 +74,9 @@
           </p>
           
           <% if !current_user.profile.firstname.nil? %>
-            <p class="navbar-text navbar-right gray-link">Signed in as <%= link_to "#{current_user.profile.firstname} #{current_user.profile.lastname}", @profile %></p>
+            <p class="navbar-text navbar-right gray-link">Signed in as <%= link_to truncate("#{current_user.profile.firstname} #{current_user.profile.lastname}", length: 30), @profile %></p>
           <% elsif !current_user.email.nil? %>
-            <p class="navbar-text navbar-right gray-link">Signed in as <%= link_to current_user.email, @profile %></p>
+            <p class="navbar-text navbar-right gray-link">Signed in as <%= link_to truncate(current_user.email, length: 30), @profile %></p>
           <% end %>
 
         </div><!-- /.navbar-collapse -->
