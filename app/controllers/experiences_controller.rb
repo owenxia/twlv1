@@ -46,12 +46,9 @@ class ExperiencesController < ApplicationController
 
 	def create
 		authorize! :create, @experience
-		@temp = experience_params
-		@temp[:city].downcase!
-		@temp[:city].capitalize!
-		if @temp[:location].empty?
-			@temp[:location] = @temp[:city]
-		end
+
+		set_city_location
+
 		@experience = Experience.new(@temp)
 		
 		if @experience.save
@@ -67,12 +64,8 @@ class ExperiencesController < ApplicationController
 
 	def update
 		authorize! :update, @experience
-		@temp = experience_params
-		@temp[:city].downcase!
-		@temp[:city] = @temp[:city].split(' ').map(&:capitalize).join(' ')
-		if @temp[:location].empty?
-			@temp[:location] = @temp[:city]
-		end
+
+		set_city_location
 
 		if @experience.update(@temp)
 			flash[:notice] = "Experience updated."
@@ -104,6 +97,18 @@ class ExperiencesController < ApplicationController
 	end
 	def set_experience		
 		@experience = Experience.find(params[:id])
+	end
+	def set_city_location
+		@temp = experience_params
+		@temp[:name].downcase!
+		@temp[:name] = @temp[:name].split(' ').map(&:capitalize).join(' ')
+		@temp[:city].downcase!
+		@temp[:city] = @temp[:city].split(' ').map(&:capitalize).join(' ')
+		@temp[:location].downcase!
+		@temp[:location] = @temp[:location].split(' ').map(&:capitalize).join(' ')
+		if @temp[:location].empty?
+			@temp[:location] = @temp[:city]
+		end
 	end
 
 end

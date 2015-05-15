@@ -29,9 +29,13 @@ class Experience < ActiveRecord::Base
 		tags.join(', ')
 	end
 
-	geocoded_by :location
+	geocoded_by :full_location
 	after_validation :geocode, if: :location_changed?
 
 	searchkick
+
+	def full_location
+		"#{:country} #{:location}" 
+	end
 
 end
