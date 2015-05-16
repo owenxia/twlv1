@@ -45,11 +45,7 @@ class Experience < ActiveRecord::Base
 		using: {tsearch: {dictionary: "english"}}
 
 	def self.text_search(query)
-		if query.present?
-			search(query)
-		else
-			scoped
-		end
+		search(query)
 	end
 
 end

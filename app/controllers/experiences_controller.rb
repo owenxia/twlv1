@@ -34,7 +34,11 @@ class ExperiencesController < ApplicationController
 		# end
 
 		if params[:search]
-			@experiences = Experience.text_search(params[:search]).page(params[:page]).per(10)
+			if params[:search].present?
+				@experiences = Experience.text_search(params[:search]).page(params[:page]).per(10)
+			else
+				@experiences = Experience.all.order('name').page(params[:page]).per(10)
+			end
 		elsif params[:tag]
 			@experiences = Experience.tagged_with(params[:tag]).page(params[:page]).per(10)
 		elsif params[:continent]
