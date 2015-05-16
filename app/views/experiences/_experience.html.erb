@@ -16,9 +16,12 @@
                 </p>
               </div>
               <div class="panel-body panel-image">
+                <div class="zoom-image-wrapper"> 
                   <% if !experience.cover.blank? %>
-                  <%= link_to image_tag(experience.cover.url(:small), class: "image-show"), experience %>
+                  <%= link_to image_tag(experience.cover.url(:small)), experience %>
                   <% end %>
+                </div>
+
                 <p class="index-description">
                   <% if !experience.description.blank? %>
                   <%= (experience.description).truncate(300).html_safe %>

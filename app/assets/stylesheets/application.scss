@@ -185,9 +185,28 @@ img{
 .panel-image{
 	padding: 0;
 	margin: 0;
-}
-.image-show{
-	width: 100%;
+
+	.zoom-image-wrapper{
+	max-width: 100%;
+	overflow: hidden;
+	}
+	
+	img{
+		width: 100%;
+
+		-webkit-transition: all .3s ease-out;
+	  	-moz-transition: all .3s ease-out;
+	  	-o-transition: all .3s ease-out;
+    	transition: all .3s ease-out;
+
+		&:hover{
+			-moz-transform:scale(1.075); 
+			-webkit-transform:scale(1.075);
+			-o-transform:scale(1.075);
+			transform:scale(1.075);
+
+		}
+	}
 }
 
 @media screen and (max-width: 1024px) {
