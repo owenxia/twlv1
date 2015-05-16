@@ -21,6 +21,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.navbar .brand, .navbar .nav > li > a:hover {
+    background-color: #A7A6A8;
+    border-radius: 5px;
+}
 
 #bg {
 	position: fixed; 
@@ -74,14 +78,27 @@
 }
 
 .container-headline{
+	width: 90%;
+	color: white;
+	h1{
+		font-size: 4.5em;
+		color: #FFFAFA;
+		margin-top: 8%;
+	}
+	p{
+		font-size: 2em;
+		font-weight: 700;
+		color: #FFFAFA;
+		margin-top: 20px;
+		letter-spacing: -1px;
 
+	}
+	.btn-cta{
+		margin-top: 40px;
+		font-size: 1.5em;
+		font-weight: 700;
+	}
 }
-
-.landing-page-headline{
-	color: red;	
-
-}
-
 
 @media screen and (max-width: 1050px) {
     .navbar-header {
@@ -128,6 +145,7 @@ body{
 
 h1, h2, h3, h4{
 	font-weight: 700;
+	color: #333;
 }
 h1{
 	padding-left: 15px;
@@ -167,11 +185,22 @@ img{
 		display: inline-block;
 		width: 49.25%;
 	}
+	.container-headline{
+		font-size: 0.8em;
+	}
+	#nav-toggle-button-1{
+		background-color: #FFFAFA;
+		opacity: 0.2;
+		transform:scale(0.8,0.8);
+	}
 }
 @media screen and (max-width: 768px) {
 	.panel-experience{
 		display: inline-block;
 		width: 99%;
+	}
+	.container-headline{
+		font-size: 0.6em;
 	}
 }
 .panel-search{
