@@ -19,6 +19,10 @@
 #  provider               :string
 #  uid                    :string
 #  username               :string
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  gradded                :boolean
 #
 
 require 'test_helper'

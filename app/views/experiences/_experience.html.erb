@@ -1,9 +1,7 @@
             <div class="panel panel-experience">
               <div class="panel-heading">
                 <h3 class="panel-title"><%= link_to experience.name, experience %></h3>
-              </div>
-              <div class="panel-body">
-                <p>
+                <p class="index-location-breadcrumb">
                   <% if !experience.continent.blank? %>
                     <%= link_to experience.continent, continent_path(experience.continent) %>
                     > 
@@ -16,21 +14,31 @@
                     <%= link_to experience.city, city_path(experience.city) %>
                   <% end %>
                 </p>
-                <p>
+              </div>
+              <div class="panel-body panel-image">
+                  <% if !experience.cover.blank? %>
+                  <%= link_to image_tag(experience.cover.url(:small), class: "image-show"), experience %>
+                  <% end %>
+                <p class="index-description">
                   <% if !experience.description.blank? %>
-                  <%= (experience.description).truncate(500).html_safe %>
+                  <%= (experience.description).truncate(300).html_safe %>
                   <% end %>
                 </p>
-                <p>
-                  <%= link_to ('Show Details <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>').html_safe, experience, class: "btn btn-primary btn-xs btn-wish-list-action" %>
-                  
-                  <% if current_user %>
-                    <% if current_user.voted_up_on? experience %>
-                      <%= link_to ('Remove from Wish List <span class="glyphicon glyphicon-remove" ari="true"></span>').html_safe, dislike_experience_path(experience), method: :put, class: "btn btn-default btn-xs btn-wish-list-action" %>
-                    <% else %>
-                      <%= link_to ('Add to Wish List <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').html_safe, like_experience_path(experience), method: :put, class: "btn btn-success btn-xs btn-wish-list-action" %> 
-                    <% end %>
-                  <% end %>                
-                </p>
+                
+                <div class="parent">
+                  <div class="child">
+                    <p>
+                      <%= link_to ('Show Details <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>').html_safe, experience, class: "btn btn-primary btn-xs btn-wish-list-action" %>
+                      
+                      <% if current_user %>
+                        <% if current_user.voted_up_on? experience %>
+                          <%= link_to ('Remove from Wish List <span class="glyphicon glyphicon-remove" ari="true"></span>').html_safe, dislike_experience_path(experience), method: :put, class: "btn btn-default btn-xs" %>
+                        <% else %>
+                          <%= link_to ('Add to Wish List <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').html_safe, like_experience_path(experience), method: :put, class: "btn btn-success btn-xs" %> 
+                        <% end %>
+                      <% end %>                
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>

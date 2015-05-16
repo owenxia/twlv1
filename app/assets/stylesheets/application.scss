@@ -22,7 +22,7 @@
 @import "bootstrap";
 
 .navbar .brand, .navbar .nav > li > a:hover {
-    background-color: #A7A6A8;
+    background-color: #011627;
     border-radius: 5px;
 }
 
@@ -81,7 +81,7 @@
 	width: 90%;
 	color: white;
 	h1{
-		font-size: 4.5em;
+		font-size: 4em;
 		color: #FFFAFA;
 		margin-top: 8%;
 	}
@@ -90,7 +90,6 @@
 		font-weight: 700;
 		color: #FFFAFA;
 		margin-top: 20px;
-		letter-spacing: -1px;
 
 	}
 	.btn-cta{
@@ -152,10 +151,9 @@ h1{
 	margin-bottom: 20px;
 	letter-spacing: -1px;
 }
-
 img{
     //width:100%;
-    max-width: 600px;
+    //max-width: 600px;
 }
 
 .panel{
@@ -170,6 +168,9 @@ img{
 .panel-heading{
 	padding-top:20px;
 	border-color: #F5F5F5;
+	h3{
+	font-size: 1.2em;
+	}
 }
 .panel-body{
 	padding-bottom: 20px;
@@ -177,7 +178,15 @@ img{
 }
 .panel-experience{
 	display: inline-block;
+	vertical-align: top;
 	width: 33%;
+}
+.panel-image{
+	padding: 0;
+	margin: 0;
+}
+.image-show{
+	width: 100%;
 }
 
 @media screen and (max-width: 1024px) {
@@ -258,8 +267,8 @@ img{
 	display: inline-block;
 	margin: 0.725em;
 }
-.btn-wish-list-action{
-	margin-top: 5px;
+.index-description{
+	margin: 15px;
 }
 .margin-search-action{
 	margin-top: 5px;
@@ -444,4 +453,9 @@ img{
 }
 .location-not-found-block{
 	margin: 15px;
+}
+.index-location-breadcrumb{
+	margin-top: 5px;
+	margin-bottom: 0;
+	font-size: 0.8em;
 }

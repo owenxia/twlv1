@@ -64,7 +64,6 @@ gem 'rails_12factor', group: :production
 gem 'jsonrpc-client'
 gem 'seed-fu', '~> 2.3.5'
 gem 'faker', '~> 1.4.3'
-gem 'paperclip', '~> 4.2.1'
 
 
 
