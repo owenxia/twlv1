@@ -62,7 +62,8 @@ gem 'pg_search', '~> 1.0.3'
 gem 'figaro', '~> 1.1.0'
 gem 'rails_12factor', group: :production
 gem 'jsonrpc-client'
-
+gem 'seed-fu', '~> 2.3.5'
+gem 'faker', '~> 1.4.3'
 
 
 
