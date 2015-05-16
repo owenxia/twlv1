@@ -34,18 +34,18 @@ class ExperiencesController < ApplicationController
 		# end
 
 		if params[:search]
-			@experiences = Experience.text_search(params[:search]).page(params[:page]).per(5)
+			@experiences = Experience.text_search(params[:search]).page(params[:page]).per(10)
 		elsif params[:tag]
-			@experiences = Experience.tagged_with(params[:tag]).page(params[:page]).per(5)
+			@experiences = Experience.tagged_with(params[:tag]).page(params[:page]).per(10)
 		elsif params[:continent]
-			@experiences = Experience.where("continent = ?", params[:continent]).page(params[:page]).per(5)
+			@experiences = Experience.where("continent = ?", params[:continent]).page(params[:page]).per(10)
 		elsif params[:country]
-			@experiences = Experience.where("country = ?", params[:country]).page(params[:page]).per(5)
+			@experiences = Experience.where("country = ?", params[:country]).page(params[:page]).per(10)
 		elsif params[:city]
-			@experiences = Experience.where("city = ?", params[:city]).page(params[:page]).per(5)
+			@experiences = Experience.where("city = ?", params[:city]).page(params[:page]).per(10)
 		else	
 			# Kaminari
-			@experiences = Experience.all.order('name').page(params[:page]).per(5)
+			@experiences = Experience.all.order('name').page(params[:page]).per(10)
 			
 			# Will_paginate
 			# @experiences = Experience.all.paginate(page: params[:page], per_page:10)
