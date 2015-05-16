@@ -5,6 +5,34 @@ class ExperiencesController < ApplicationController
 	before_action :set_experience, only: [:show, :edit, :update, :destroy, :add, :remove]
 
 	def index
+
+
+		# GetResponse add the contact
+		api_key = ENV['GETRESPONSE_API_KEY']
+		api_url = 'http://api2.getresponse.com/'
+
+		# initialize JSON-RPC client
+		client = JSONRPC::Client.new(api_url)
+	
+		# if user_signed_in?
+		# 	# if user is not added to GR list yet
+		# 	if !current_user.gradded?
+		# 		begin
+		# 			@response = client.add_contact(
+		# 			    api_key,
+		# 			    {
+		# 			    	"campaign": "VDUIF",
+		# 			        "email": current_user.email
+		# 			    }
+		# 			)
+		# 			current_user.gradded = true
+		# 			current_user.save
+		# 		rescue
+		# 			redirect_to how_it_works_path
+		# 		end
+		# 	end
+		# end
+
 		if params[:search]
 			@experiences = Experience.text_search(params[:search]).page(params[:page]).per(5)
 		elsif params[:tag]
