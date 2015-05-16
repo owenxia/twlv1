@@ -21,10 +21,33 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.navbar .brand, .navbar .nav > li > a:hover {
-    background-color: #011627;
-    border-radius: 5px;
+
+.landing-page-menu{
+	color: #F5F5F5;
+	opacity: 0.8;
+	
+	a{
+		color: #F5F5F5;
+		opacity: 0.8;
+	}
+
+	li > a:hover {
+   		background-color: #011627;
+    	border-radius: 5px;
+	}
+
+	.open .dropdown-toggle {
+		background: #011627 !important; 
+		border-radius: 5px;
+	}
+
+	.dropdown-menu > li > a:hover {
+		background-color: #F5F5F5;
+	}
 }
+
+
+
 
 #bg {
 	position: fixed; 
@@ -66,17 +89,6 @@
 	opacity: 0.2;
 	z-index: -10;
 }
-
-.landing-page-menu{
-	color: #F5F5F5;
-	opacity: 0.8;
-	
-	a{
-		color: #F5F5F5;
-		opacity: 0.8;
-	}
-}
-
 .container-headline{
 	width: 90%;
 	color: white;
