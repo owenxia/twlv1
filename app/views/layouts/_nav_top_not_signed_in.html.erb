@@ -1,4 +1,8 @@
+<% if controller.class == WelcomeController && controller.action_name == 'index' %>
+    <nav class="navbar landing-page-menu">
+<% else %>
     <nav class="navbar navbar-inverse">
+<% end %>
       <div class="container-fluid narrower-nav-top">
 
 

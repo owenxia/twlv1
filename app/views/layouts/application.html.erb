@@ -17,13 +17,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body role="document">
+	<body role="document">
+
 	<% if user_signed_in? %> 
 		<%= render 'layouts/nav_top_signed_in' %>
 	<% else %>
 		<%= render 'layouts/nav_top_not_signed_in' %>
 	<% end %> 
-
 
     <div class="container" role="main">
 
