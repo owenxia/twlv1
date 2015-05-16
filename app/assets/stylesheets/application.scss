@@ -87,13 +87,14 @@
 	}
 	p{
 		font-size: 2em;
-		font-weight: 700;
+		//font-weight: 700;
+		letter-spacing: -1px;
 		color: #FFFAFA;
-		margin-top: 20px;
+		margin-top: 30px;
 
 	}
 	.btn-cta{
-		margin-top: 40px;
+		margin-top: 30px;
 		font-size: 1.5em;
 		font-weight: 700;
 	}
@@ -197,11 +198,6 @@ img{
 	.container-headline{
 		font-size: 0.8em;
 	}
-	#nav-toggle-button-1{
-		background-color: #FFFAFA;
-		opacity: 0.2;
-		transform:scale(0.8,0.8);
-	}
 }
 @media screen and (max-width: 768px) {
 	.panel-experience{
@@ -209,7 +205,7 @@ img{
 		width: 99%;
 	}
 	.container-headline{
-		font-size: 0.6em;
+		font-size: 0.5em;
 	}
 }
 .panel-search{
@@ -278,6 +274,10 @@ img{
 }
 .btn-create-experience{
 	margin-right: 1%;
+}
+.btn-panel-action{
+	margin-top: 5px;
+	margin-bottom: 10px;
 }
 
 .parent{
