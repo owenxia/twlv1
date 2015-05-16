@@ -2,20 +2,22 @@
         <div class="col-md-8">       
 
           <% if can? :create, @experience %>
-            <div class="pull-right">
+            <div class="pull-right btn-create-experience">
               <%= link_to 'Create Travel Experience', new_experience_path, class: "btn btn-info btn-sm" %>
             </div>
           <% end %>
 
           <h1>Travel Experiences</h1>
+
         </div>
+
         <div class="col-md-4">
           <div class="panel panel-search">
             <div class="panel-body">
 
               <%= form_tag experiences_path, class: "form-inline", method: :get do %>
-                <%= text_field_tag :search, params[:search], class: "form-control" %>
-                <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+                <%= text_field_tag :search, params[:search], class: "form-control margin-search-action" %>
+                <%= submit_tag "Search", name: nil, class: "btn btn-primary margin-search-action" %>
               <% end %>
 
             </div>

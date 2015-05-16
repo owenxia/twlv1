@@ -21,6 +21,43 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@media screen and (max-width: 1050px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+		top: 0;
+		border-width: 0 0 1px;
+	}
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+		margin-top: 7.5px;
+	}
+	.navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+  		display:block !important;
+	}
+}
+
 body{
 	font-family: 'PT Sans', sans-serif;
 	//font-family: 'PT Serif', serif;
@@ -31,7 +68,7 @@ h1, h2, h3, h4{
 	font-weight: 700;
 }
 h1{
-	padding-left: 5px;
+	padding-left: 15px;
 }
 
 img{
@@ -53,11 +90,25 @@ img{
 	border-color: #F5F5F5;
 }
 .panel-body{
+	padding-bottom: 20px;
 
 }
 .panel-experience{
 	display: inline-block;
 	width: 33%;
+}
+
+@media screen and (max-width: 1024px) {
+	.panel-experience{
+		display: inline-block;
+		width: 49.25%;
+	}
+}
+@media screen and (max-width: 768px) {
+	.panel-experience{
+		display: inline-block;
+		width: 99%;
+	}
 }
 .panel-search{
 	width: 99%;
@@ -75,7 +126,7 @@ img{
 }
 
 .container-navbar-bottom{
-	width: 90%;
+	width: 95%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -117,8 +168,14 @@ img{
 .btn-wish-list-action{
 	margin-top: 5px;
 }
+.margin-search-action{
+	margin-top: 5px;
+}
 .btn-social{
 	margin-bottom: 10px;
+}
+.btn-create-experience{
+	margin-right: 1%;
 }
 
 .parent{
@@ -199,6 +256,7 @@ img{
 .avatar-main{
 		width: 80px;
 		border-radius: 5px;
+		margin-bottom: 10px;
 }
 .avatar-display{
 	display: inline-block;
@@ -267,7 +325,7 @@ img{
 	color: #b94a48;
 }
 .narrower-nav-top{
-	width: 90%;
+	width: 95%;
 }
 .navbar-brand{
 	//font-family: 'PT Serif', serif;
@@ -286,6 +344,7 @@ img{
 	}
 }
 .profile-table{
+	margin-left: 5px;
 	td{
 		padding: 2px 10px 2px 0;
 	}

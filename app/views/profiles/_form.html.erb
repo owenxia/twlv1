@@ -1,6 +1,6 @@
 <%= simple_form_for @profile do |f| %>
-	<%= f.input :firstname %>
-	<%= f.input :lastname %>
+	<%= f.input :firstname, label: "First name" %>
+	<%= f.input :lastname, label: "Last name" %>
 	<%= f.input :country, prompt: "Select" %>
 	<%= f.input :city %>
 	<%= f.input :gender, collection: ['Male', 'Female'], prompt: "Select" %>
