@@ -45,9 +45,25 @@
 		background-color: #F5F5F5;
 	}
 }
+.landing-page-menu-bottom{
+	color: #F5F5F5;
+	opacity: 0.8;
+	
+	a{
+		color: #F5F5F5;
+		opacity: 0.8;
+	}
 
+	li > a:hover {
+   		background-color: transparent;
+   		color: #011627;
+	}
+}
 
-
+// .navbar-fixed-bottom{
+// 	margin-top: 500px;
+// 	background-color: red;
+// }
 
 #bg {
 	position: fixed; 
@@ -198,7 +214,7 @@ img{
 }
 .container{
 	width: 80%;
-	margin-bottom: 50px;
+	margin-bottom: 80px;
 }
 
 .container-navbar-bottom{
