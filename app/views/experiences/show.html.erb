@@ -99,9 +99,10 @@
                         <div class="col-md-11">
                           <%= review.body %>
 
+                          <%= link_to 'Edit', edit_experience_review_path(review.experience, review), class: "btn btn-warning btn-xs review-button-adjust-margin" %>
+
                           <%= link_to 'Delete', experience_review_path(review.experience, review), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger btn-xs review-button-adjust-margin" %> 
 
-                          <%= link_to 'Edit', edit_experience_review_path(review.experience, review), class: "btn btn-warning btn-xs review-button-adjust-margin" %>
                         </div>   
                       </div> <!-- /row -->
                     <% end %>
