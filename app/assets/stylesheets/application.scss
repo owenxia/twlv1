@@ -372,34 +372,6 @@ a.read-more{
 .block-travel-records{
 	padding: 0 15px;
 }
-.avatar-image{
-		img{
-			width: 50px;
-			border-radius: 100%;
-		}
-}
-.avatar-main{
-		width: 80px;
-		border-radius: 5px;
-		margin-bottom: 10px;
-}
-.avatar-display{
-	display: inline-block;
-	padding: 0 5px 0 0;
-	text-align: center;
-	vertical-align: top;
-	.image-display{
-		display: block;
-
-	}
-	.name-display{
-		font-size: 0.75em;
-		font-weight: 700;
-		margin-top: 2px;
-		display: block;
-
-	}
-}
 
 .panel-map{
 	margin: 0;
@@ -550,5 +522,43 @@ a.read-more{
     }
     .collapse.in{
   		display:block !important;
+	}
+}
+.review-avatar{
+	float: left;
+	margin: 24px 10px -8px 19px;
+
+}
+.review-text{
+	padding: 20px;
+}
+
+.avatar-image{
+		img{
+			width: 50px;
+			border-radius: 100%;
+		}
+}
+.avatar-main{
+		width: 80px;
+		border-radius: 5px;
+		margin-bottom: 10px;
+}
+.avatar-display{
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	padding-right: 3px;
+	
+	.image-display{
+		display: block;
+
+	}
+	.name-display{
+		font-size: 0.75em;
+		font-weight: 700;
+		margin-top: 2px;
+		display: block;
+
 	}
 }

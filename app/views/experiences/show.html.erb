@@ -87,23 +87,23 @@
                     <!-- upon page loading, a new empty review is created for experience to be used as new reveiw input, which cannot be edited -->
                     <% if !review.id.nil? %> 
                       <div class="row">
-                        <div class="col-md-1">
-      
+                        
+                        <div class="review-avatar">
                           <div class="avatar-display">
                             <div class="avatar-display image-display"><%= link_to image_tag(avatar_url(review.set_user(review.user_id).profile)), review.set_user(review.user_id).profile ,class: "avatar-image" %>
                             </div>
                             <div class="avatar-display name-display"><%= review.set_user(review.user_id).profile.firstname %> <%= review.set_user(review.user_id).profile.lastname %></div>
-                          </div>
-                  
+                          </div>                 
                         </div>
-                        <div class="col-md-11">
+
+                        <div class="review-text">
                           <%= review.body %>
 
                           <%= link_to 'Edit', edit_experience_review_path(review.experience, review), class: "btn btn-warning btn-xs review-button-adjust-margin" %>
 
                           <%= link_to 'Delete', experience_review_path(review.experience, review), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger btn-xs review-button-adjust-margin" %> 
-
                         </div>   
+
                       </div> <!-- /row -->
                     <% end %>
                   </div> <!-- /review-display -->
