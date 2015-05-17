@@ -36,8 +36,13 @@ class ProfilesController < ApplicationController
 		@temp[:lastname].downcase!
 		@temp[:lastname].capitalize!
 
-
 		if @profile.update(@temp)
+
+			if @temp[:delete_avatar]
+				@profile.avatar_img = nil
+				@profile.save
+			end
+			
 			flash[:notice] = "Profile updated."
 			redirect_to @profile
 		else
@@ -72,7 +77,7 @@ class ProfilesController < ApplicationController
 
 	private
 	def profile_params
-		params.require(:profile).permit(:firstname, :lastname, :country, :city, :gender, :age, :about, :tag_list, :avatar_url, :avatar_img)
+		params.require(:profile).permit(:firstname, :lastname, :country, :city, :gender, :age, :about, :tag_list, :avatar_url, :avatar_img, :delete_avatar)
 	end
 	def set_profile
 		if params[:id] 

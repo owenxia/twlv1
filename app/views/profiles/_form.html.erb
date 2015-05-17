@@ -8,7 +8,7 @@
 	<%= f.input :about %>
 	<%= f.input :tag_list, label: 'Travel interests' %>
 	<%= f.input :avatar_img, as: :file, label: "Avatar" %>
-	
+	<%= f.input :delete_avatar, as: :boolean, checked: false, checked_value: true, unchecked_value: false, label: "Delete exisitng avatar?" %>	
 	<%= f.input :avatar_url, label: 'Avatar URL' %>
 	<%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

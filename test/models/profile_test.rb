@@ -18,6 +18,7 @@
 #  avatar_img_content_type :string
 #  avatar_img_file_size    :integer
 #  avatar_img_updated_at   :datetime
+#  delete_avatar           :boolean
 #
 
 require 'test_helper'
