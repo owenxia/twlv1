@@ -22,22 +22,22 @@
                   <% end %>
                 </div>
 
-                <p class="index-description">
+                <p class="index-description description-as-link">
                   <% if !experience.description.blank? %>
-                  <%= (experience.description).truncate(300).html_safe %>
+                  <%= link_to (experience.description).truncate(300).html_safe, experience %>
+
+                  <strong> <%= link_to 'READ MORE', experience, class: "read-more" %> </strong>
                   <% end %>
                 </p>
                 
                 <div class="parent">
                   <div class="child">
-                    <p>
-                      <%= link_to ('Show Details <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>').html_safe, experience, class: "btn btn-primary btn-xs btn-panel-action" %>
-                      
+                    <p>                
                       <% if current_user %>
                         <% if current_user.voted_up_on? experience %>
-                          <%= link_to ('Remove from Wish List <span class="glyphicon glyphicon-remove" ari="true"></span>').html_safe, dislike_experience_path(experience), method: :put, class: "btn btn-default btn-xs btn-panel-action" %>
+                          <%= link_to ('Remove from Wish List <span class="glyphicon glyphicon-remove" ari="true"></span>').html_safe, dislike_experience_path(experience), method: :put, class: "btn btn-danger btn-xs btn-panel-action" %>
                         <% else %>
-                          <%= link_to ('Add to Wish List <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').html_safe, like_experience_path(experience), method: :put, class: "btn btn-success btn-xs btn-panel-action" %> 
+                          <%= link_to ('Add to Wish List <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').html_safe, like_experience_path(experience), method: :put, class: "btn btn-warning btn-xs btn-panel-action" %> 
                         <% end %>
                       <% end %>                
                     </p>

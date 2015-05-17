@@ -217,6 +217,18 @@ img{
 	}
 }
 
+.description-as-link{
+	a {
+		color: #444;
+		&:hover {
+			text-decoration: none;	
+		}
+	}
+}
+a.read-more{
+	color: #3a87ad;	
+}
+
 
 .panel-search{
 	width: 99%;
