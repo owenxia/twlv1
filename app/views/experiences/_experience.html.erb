@@ -35,9 +35,9 @@
                     <p>                
                       <% if current_user %>
                         <% if current_user.voted_up_on? experience %>
-                          <%= link_to ('Remove from Wish List <span class="glyphicon glyphicon-remove" ari="true"></span>').html_safe, dislike_experience_path(experience), method: :put, class: "btn btn-danger btn-xs btn-panel-action" %>
+                          <%= link_to ('Remove from Wish List').html_safe, dislike_experience_path(experience), method: :put, class: "btn btn-danger btn-sm btn-panel-action" %>
                         <% else %>
-                          <%= link_to ('Add to Wish List <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').html_safe, like_experience_path(experience), method: :put, class: "btn btn-warning btn-xs btn-panel-action" %> 
+                          <%= link_to ('Add to Wish List').html_safe, like_experience_path(experience), method: :put, class: "btn btn-warning btn-sm btn-panel-action" %> 
                         <% end %>
                       <% end %>                
                     </p>

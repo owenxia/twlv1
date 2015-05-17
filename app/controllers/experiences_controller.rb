@@ -117,11 +117,13 @@ class ExperiencesController < ApplicationController
 
 	def add
 		@experience.upvote_by current_user
+		flash[:notice] = "Travel experience added to wish list."
 		redirect_to :back
 	end
 
 	def remove
 		@experience.downvote_by current_user
+		flash[:notice] = "Travel experience removed from wish list."
 		redirect_to :back
 	end
 
