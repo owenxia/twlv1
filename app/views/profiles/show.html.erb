@@ -40,8 +40,11 @@
                   <div class="parent">
                     <div class="child">
                       <div class="avatar-display image-display">
-                        <%= image_tag avatar_url(@profile), class: "avatar-main" %>
+                      <% if !@profile.avatar_img.blank? %>
                         <%= image_tag @profile.avatar_img, class: "avatar-main" %>
+                      <% else %>
+                        <%= image_tag avatar_url(@profile), class: "avatar-main" %>
+                      <% end %>
                       </div>
                     </div>
                   </div>

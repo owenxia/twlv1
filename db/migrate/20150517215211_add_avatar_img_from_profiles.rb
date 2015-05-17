@@ -1,4 +1,4 @@
-class AddAvatarImgToProfiles < ActiveRecord::Migration
+class AddAvatarImgFromProfiles < ActiveRecord::Migration
   def self.up
     add_attachment :profiles, :avatar_img
   end
