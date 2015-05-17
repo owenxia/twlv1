@@ -38,9 +38,9 @@ class ProfilesController < ApplicationController
 
 		if @profile.update(@temp)
 
-			if @temp[:delete_avatar]
-				@profile.avatar_img = nil
-				@profile.save
+			if @temp[:delete_avatar] == "true"
+			 	@profile.avatar_img = nil
+			 	@profile.save
 			end
 			
 			flash[:notice] = "Profile updated."
