@@ -39,7 +39,10 @@
 
                   <div class="parent">
                     <div class="child">
-                      <div class="avatar-display image-display"><%= image_tag avatar_url(@profile), class: "avatar-main" %></div>
+                      <div class="avatar-display image-display">
+                        <%= image_tag avatar_url(@profile), class: "avatar-main" %>
+                        <%= image_tag @profile.avatar_img, class: "avatar-main" %>
+                      </div>
                     </div>
                   </div>
 

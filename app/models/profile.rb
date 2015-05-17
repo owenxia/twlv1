@@ -18,6 +18,9 @@
 
 class Profile < ActiveRecord::Base
 	belongs_to :user
+
+	has_attached_file :avatar_img, :styles => { :standard => "300x300>" }, :default_url => :avatar_url
+  	validates_attachment_content_type :avatar_img, :content_type => /\Aimage\/.*\Z/
 	
 	acts_as_taggable
 	acts_as_followable
