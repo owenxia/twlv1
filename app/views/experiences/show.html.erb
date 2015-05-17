@@ -20,16 +20,16 @@
           <%= social_share_button_tag(@experience.name) %>
 
           <p class="text-info"><i><span class="glyphicon glyphicon-tag"></span> 
-            <%= @experience.tags.map {|tag| link_to tag, tag_path(tag.name)}.join(', <span class="glyphicon glyphicon-tag"></span> ').html_safe %>
+            <%= @experience.tags.map {|tag| link_to tag, tag_path(tag.name)}.join(' <span class="glyphicon glyphicon-tag"></span> ').html_safe %>
           </i></p>
 
           <div class="btn-action-parent">
             <div class="btn-action-child">
               
               <% if current_user.voted_up_on? @experience %>
-                <%= link_to 'Remove from Wish List', dislike_experience_path(@experience), method: :put, class: "btn btn-default" %>
+                <%= link_to 'Remove from Wish List', dislike_experience_path(@experience), method: :put, class: "btn btn-danger btn-lg" %>
               <% else %>
-                <%= link_to 'Add to Wish List', like_experience_path(@experience), method: :put, class: "btn btn-success" %> 
+                <%= link_to 'Add to Wish List', like_experience_path(@experience), method: :put, class: "btn btn-warning btn-lg" %> 
               <% end %>
 
             </div>

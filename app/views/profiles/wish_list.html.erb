@@ -22,16 +22,52 @@
         <div class="col-md-8">  
 
           <% @experiences.each do |experience| %>
-            <div class="panel">
+             <div class="panel">
               <div class="panel-heading">
-                <h3 class="panel-title"><%= experience.name %></h3>
+                <h3 class="panel-title"><%= link_to experience.name, experience %></h3>
+                <p class="index-location-breadcrumb">
+                  <% if !experience.continent.blank? %>
+                    <%= link_to experience.continent, continent_path(experience.continent) %>
+                    > 
+                  <% end %>
+                  <% if !experience.country.blank? %> 
+                    <%= link_to experience.country, country_path(experience.country) %>
+                    >
+                  <% end %> 
+                  <% if !experience.city.blank? %>
+                    <%= link_to experience.city, city_path(experience.city) %>
+                  <% end %>
+                </p>
               </div>
-              <div class="panel-body">
-                <p><%= experience.continent %> > <%= experience.country %> > <%= experience.city.downcase.capitalize %></p>
-                <p><%= (experience.description).html_safe if !experience.description.blank? %></p>
-                <p><%= link_to 'Show Details', experience, class: "btn btn-success btn-xs" %></p>
-              </div>
+              <div class="panel-body panel-image-wish-list">
+                  <% if !experience.cover.blank? %>
+                  <%= link_to image_tag(experience.cover.url), experience %>
+                  <% end %>
+
+                <p class="index-description">
+                  <% if !experience.description.blank? %>
+                  <%= (experience.description).truncate(300).html_safe %>
+                  <% end %>
+                </p>
+                
+                <div class="parent">
+                  <div class="child">
+                    <p>
+                      <%= link_to ('Show Details <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>').html_safe, experience, class: "btn btn-primary btn-panel-action" %>
+                      
+                      <% if current_user %>
+                        <% if current_user.voted_up_on? experience %>
+                          <%= link_to ('Remove from Wish List <span class="glyphicon glyphicon-remove" ari="true"></span>').html_safe, dislike_experience_path(experience), method: :put, class: "btn btn-danger btn-panel-action" %>
+                        <% else %>
+                          <%= link_to ('Add to Wish List <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').html_safe, like_experience_path(experience), method: :put, class: "btn btn-success btn-panel-action" %> 
+                        <% end %>
+                      <% end %>                
+                    </p>
+                  </div>
+                </div>
+              </div> <!-- /panel-body-image-index -->
             </div>
+
           <% end %>
 
         </div> <!-- /col-md-8 -->
