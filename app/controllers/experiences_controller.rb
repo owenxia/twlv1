@@ -35,24 +35,24 @@ class ExperiencesController < ApplicationController
 
 		if params[:search]
 			if params[:search].present?
-				@experiences = Experience.text_search(params[:search]).page(params[:page]).per(10)
+				@experiences = Experience.text_search(params[:search]).paginate(page: params[:page], per_page:10)
 			else
-				@experiences = Experience.all.order('name').page(params[:page]).per(10)
+				@experiences = Experience.all.order('name').paginate(page: params[:page], per_page:10)
 			end
 		elsif params[:tag]
-			@experiences = Experience.tagged_with(params[:tag]).page(params[:page]).per(10)
+			@experiences = Experience.tagged_with(params[:tag]).paginate(page: params[:page], per_page:10)
 		elsif params[:continent]
-			@experiences = Experience.where("continent = ?", params[:continent]).page(params[:page]).per(10)
+			@experiences = Experience.where("continent = ?", params[:continent]).paginate(page: params[:page], per_page:10)
 		elsif params[:country]
-			@experiences = Experience.where("country = ?", params[:country]).page(params[:page]).per(10)
+			@experiences = Experience.where("country = ?", params[:country]).paginate(page: params[:page], per_page:10)
 		elsif params[:city]
-			@experiences = Experience.where("city = ?", params[:city]).page(params[:page]).per(10)
+			@experiences = Experience.where("city = ?", params[:city]).paginate(page: params[:page], per_page:10)
 		else	
 			# Kaminari
-			@experiences = Experience.all.order('name').page(params[:page]).per(10)
+			# @experiences = Experience.all.order('name').page(params[:page]).per(10)
 			
 			# Will_paginate
-			# @experiences = Experience.all.paginate(page: params[:page], per_page:10)
+			@experiences = Experience.all.paginate(page: params[:page], per_page:10)
 		end
 
 		@hash_experience_list = Gmaps4rails.build_markers(@experiences) do |experience, marker|

@@ -51,7 +51,6 @@ gem 'geocoder', '~> 1.2.8'
 gem 'gmaps4rails', '~> 2.1.2'
 gem 'underscore-rails', '~> 1.8.2'
 gem 'social-share-button', '~> 0.1.8'
-gem 'kaminari', '~> 0.16.3'
 gem 'paperclip', '~> 4.2.1'
 gem 'rmagick', '~> 2.15.0'
 gem 'font-awesome-rails', '~> 4.3.0.0'
@@ -65,7 +64,8 @@ gem 'jsonrpc-client'
 gem 'seed-fu', '~> 2.3.5'
 gem 'faker', '~> 1.4.3'
 
-
+#gem 'kaminari', '~> 0.16.3'
+gem 'will_paginate', '~> 3.0.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
