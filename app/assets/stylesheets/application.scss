@@ -188,6 +188,9 @@ img{
 	.zoom-image-wrapper{
 	max-width: 100%;
 	overflow: hidden;
+
+	-webkit-backface-visibility: hidden;
+
 	}
 	
 	img{
@@ -199,8 +202,8 @@ img{
     	transition: all .3s ease-out;
 
 		&:hover{
+			-webkit-transform:scale(10);
 			-moz-transform:scale(1.075); 
-			-webkit-transform:scale(1.075);
 			-o-transform:scale(1.075);
 			transform:scale(1.075);
 
@@ -562,3 +565,27 @@ a.read-more{
 
 	}
 }
+
+
+
+
+#experiences {
+ -webkit-column-width: 22em;
+ -moz-column-width: 20em;
+ column-width: 25em;
+
+ -webkit-column-gap: .5em; 
+ -moz-column-gap: .5em;
+ column-width: 25em;
+
+}
+
+.panel {
+ display: inline-block;
+ margin:  .5em;
+ padding:  0; 
+ width: 98%;
+}
+
+  
+
