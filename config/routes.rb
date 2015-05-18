@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
   authenticated :user do
-    root to: "profiles#wish_list", as: :authenticated_root
+    root to: "welcome#how_it_works", as: :authenticated_root
   end
   root to: 'welcome#index'
   
