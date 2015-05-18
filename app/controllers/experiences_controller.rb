@@ -132,7 +132,7 @@ class ExperiencesController < ApplicationController
 		params.require(:experience).permit(:name, :continent, :country, :city, :location, :description, :cover, :multimedia, :external_links, :tag_list)
 	end
 	def set_experience		
-		@experience = Experience.find(params[:id])
+		@experience = Experience.friendly.find(params[:id])
 	end
 	def set_params
 		@temp = experience_params

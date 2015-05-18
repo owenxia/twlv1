@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150517220548) do
+ActiveRecord::Schema.define(version: 20150518012045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,7 +51,10 @@ ActiveRecord::Schema.define(version: 20150517220548) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.string   "slug"
   end
+
+  add_index "experiences", ["slug"], name: "index_experiences_on_slug", unique: true, using: :btree
 
   create_table "follows", force: :cascade do |t|
     t.integer  "followable_id",                   null: false

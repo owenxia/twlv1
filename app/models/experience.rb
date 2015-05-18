@@ -22,6 +22,9 @@
 #
 
 class Experience < ActiveRecord::Base
+	extend FriendlyId
+	friendly_id :name, use: :slugged
+
 	has_many :reviews, dependent: :destroy
 
 	validates :name, presence: true
