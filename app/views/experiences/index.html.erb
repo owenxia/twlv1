@@ -75,9 +75,9 @@ $(document).ready(function() {
         return $.getScript(url);
       }
 
-// simulating infinite scroll
-// $('#experiences').append('<%= escape_javascript render(@experiences) %>');
-// $('.pagination').replaceWith('<%= escape_javascript will_paginate(@experiences) %>');
+// simulate infinite scroll
+$('#experiences').append('<%= escape_javascript render(@experiences) %>');
+$('.pagination').replaceWith('<%= escape_javascript will_paginate(@experiences) %>');
 
     });
     return $(window).scroll();
