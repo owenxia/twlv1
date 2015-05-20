@@ -1,7 +1,7 @@
 class ExperiencesController < ApplicationController
 	include AutoHtml
 
-	before_action :authenticate_user!, except: [:index]
+	before_action :authenticate_user!, except: [:index, :show]
 	before_action :set_experience, only: [:show, :edit, :update, :destroy, :add, :remove]
 
 	def index
@@ -101,6 +101,8 @@ class ExperiencesController < ApplicationController
 
 		set_params
 
+		@experience.slug = nil
+
 		if @experience.update(@temp)
 			flash[:notice] = "Experience updated."
 			redirect_to @experience		
@@ -112,6 +114,7 @@ class ExperiencesController < ApplicationController
 	def destroy
 		authorize! :destroy, @experience
 		@experience.destroy
+		flash[:notice] = "Experience deleted."
 		redirect_to experiences_path
 	end
 

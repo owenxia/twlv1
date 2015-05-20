@@ -59,24 +59,3 @@
 
         </div> <!-- /col -->
       </div> <!-- /row -->
-
-
-<script>
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map-experience-list'}}, function(){
-    markers = handler.addMarkers(<%= @hash_experience_list.to_json.html_safe %>);
-
-    // if there's only one marker, center map, zoom out
-    <% if @hash_experience_list.size == 1 %>
-      // to center on a marker
-      handler.map.centerOn(markers[0]); 
-      // to set the map zoom
-      handler.getMap().setZoom(4);
-    // if more than one marker, zoom to fit
-    <% else %>
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-    <% end %>
-});
-</script>
-

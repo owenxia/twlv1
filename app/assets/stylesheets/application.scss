@@ -118,7 +118,7 @@
 		font-family: 'PT Serif', serif;
 		font-size: 2.5em;
 		font-weight: 700;
-		//letter-spacing: -1px;
+		letter-spacing: -1px;
 		color: #FFFAFA;
 		margin-top: 30px;
 
@@ -233,7 +233,6 @@ img{
 a.read-more{
 	color: #3a87ad;	
 }
-
 
 .panel-search{
 	width: 99%;
@@ -589,4 +588,7 @@ a.read-more{
  width: 98%;
 }
 
-
+.popover{
+	font-family: 'PT Sans', sans-serif;
+	color: #444;
+}
