@@ -503,6 +503,9 @@ a.read-more{
 	.container-edit{
 		width: 100%;
 	}
+	.navbar-fixed-bottom{
+		visibility: hidden;
+	}
 }
 @media screen and (max-width: 1050px) {
     .navbar-header {
