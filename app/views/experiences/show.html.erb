@@ -13,9 +13,9 @@
                 <%= link_to 'Edit Experience', edit_experience_path(@experience), class: "btn btn-warning btn-sm" %>
                 <%= link_to 'Delete Experience', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
             </div>
+          <% else %>
+              <a href="#" class="btn btn-default btn-sm pull-right" data-toggle="popover" data-html="true" data-placement="bottom" data-content="Currently we enforce content quality check to ensure the best experience for everyone. Please <a href='#'> apply to create public content</a>.">Create A Travel Experience</a>
           <% end %>
-
-          <a href="#" class="btn btn-default btn-sm pull-right" data-toggle="popover" data-html="true" data-placement="bottom" data-content="Currently we enforce content quality check to ensure the best experience for everyone. Please <a href='#'> apply to create public content</a>.">Create A Travel Experience</a>
 
           <script>
           $(document).ready(function(){
