@@ -74,11 +74,6 @@ $(document).ready(function() {
         $('.pagination').text("Please Wait...");
         return $.getScript(url);
       }
-
-// simulate infinite scroll
-$('#experiences').append('<%= escape_javascript render(@experiences) %>');
-$('.pagination').replaceWith('<%= escape_javascript will_paginate(@experiences) %>');
-
     });
     return $(window).scroll();
   }
