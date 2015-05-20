@@ -21,6 +21,10 @@
       <div class="row">
         <div class="col-md-8">  
 
+          <% if @experiences.blank? %>
+            <p class="alert-wish-list-empty">You haven't added any travel experience to your wish list yet. <%= link_to 'Explore travel experiences here.', experiences_path %></p>
+          <% end %>
+
           <% @experiences.each do |experience| %>
              <div class="panel">
               <div class="panel-heading">
