@@ -63,6 +63,34 @@
 
 <a href="#0" class="cd-top">Top</a>
 <script>
+
+
+// infinite scrolling
+$(document).ready(function() {
+  if ($('.pagination').length) {
+    $(window).scroll(function() {
+      var url = $('.pagination .next_page').attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        $('.pagination').text("Please Wait...");
+        return $.getScript(url);
+      }
+
+// simulating infinite scroll
+// $('#experiences').append('<%= escape_javascript render(@experiences) %>');
+// $('.pagination').replaceWith('<%= escape_javascript will_paginate(@experiences) %>');
+
+    });
+    return $(window).scroll();
+  }
+});
+
+
+
+
+
+
+
+// back to top button
 jQuery(document).ready(function($){
   // browser window scroll (in pixels) after which the "back to top" link is shown
   var offset = 300,
