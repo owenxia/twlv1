@@ -22,6 +22,27 @@
 @import "bootstrap";
 
 
+// basic elements
+body{
+	font-family: 'PT Sans', sans-serif;
+	//font-family: 'PT Serif', serif;
+	background-color: #F5F5F5;
+}
+
+h1, h2, h3, h4{
+	font-weight: 700;
+	color: #333;
+}
+h1{
+	margin-bottom: 20px;
+	letter-spacing: -1px;
+}
+img{
+    //width:100%;
+    //max-width: 600px;
+}
+
+// landing page
 .landing-page-menu{
 	color: #F5F5F5;
 	opacity: 0.8;
@@ -59,11 +80,6 @@
    		color: #011627;
 	}
 }
-
-// .navbar-fixed-bottom{
-// 	margin-top: 500px;
-// 	background-color: red;
-// }
 
 #bg {
 	position: fixed; 
@@ -131,25 +147,8 @@
 }
 
 
-body{
-	font-family: 'PT Sans', sans-serif;
-	//font-family: 'PT Serif', serif;
-	background-color: #F5F5F5;
-}
 
-h1, h2, h3, h4{
-	font-weight: 700;
-	color: #333;
-}
-h1{
-	margin-bottom: 20px;
-	letter-spacing: -1px;
-}
-img{
-    //width:100%;
-    //max-width: 600px;
-}
-
+// panels
 .panel{
 	border-radius: 5px;
 	
@@ -244,6 +243,14 @@ a.read-more{
 .longer-input{
 	width: 500px;
 }
+.panel-map{
+	margin: 0;
+	padding: 0;	
+}
+
+
+
+// containers
 .container{
 	width: 80%;
 	margin-bottom: 80px;
@@ -254,9 +261,7 @@ a.read-more{
 	margin-left: auto;
 	margin-right: auto;
 }
-.cointainer-filter-options{
-	
-}
+
 .container-devise{
 	width: 50%;
 }
@@ -281,6 +286,9 @@ a.read-more{
 	margin-bottom: 50px;
 }
 
+
+
+// buttons
 .btn-action-parent{
 	text-align: center;
 	margin: 0 auto 15px auto;
@@ -289,12 +297,6 @@ a.read-more{
 .btn-action-child{
 	display: inline-block;
 	margin: 0.725em;
-}
-.index-description{
-	margin: 15px;
-}
-.margin-search-action{
-	margin-top: 5px;
 }
 .btn-social{
 	margin-bottom: 10px;
@@ -319,6 +321,12 @@ a.read-more{
 .dropdown{
     display: inline;
     line-height: 40px;
+}
+.index-description{
+	margin: 15px;
+}
+.margin-search-action{
+	margin-top: 5px;
 }
 .keywords{
 	width: 250px;
@@ -389,10 +397,6 @@ a.read-more{
 	padding: 0 15px;
 }
 
-.panel-map{
-	margin: 0;
-	padding: 0;	
-}
 .add-travel-record{
 	margin: 20px auto 30px auto ;
 }
@@ -447,9 +451,6 @@ a.read-more{
 	font-weight: 700;
 	font-size: 1.2em;
 	
-	a{
-		color: red;
-	}
 }
 .gray-link{
 	a{
@@ -584,7 +585,7 @@ a.read-more{
 
 
 
-
+// infinite scrolling
 #experiences {
  -webkit-column-width: 22em;
  -moz-column-width: 20em;
@@ -596,6 +597,7 @@ a.read-more{
 
 }
 
+
 .panel {
  display: inline-block;
  margin:  .5em;
@@ -605,11 +607,16 @@ a.read-more{
 
 
 
+
+
+
 // for "apply to edit" popover
 .popover{
 	font-family: 'PT Sans', sans-serif;
 	color: #444;
 }
+
+
 
 
 
